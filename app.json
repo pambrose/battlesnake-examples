@@ -1,0 +1,9 @@
+{
+  "name": "Battlesnake Snake Example",
+  "description": "A simple snake for Battlesnake",
+  "repository": "https://github.com/pambrose/battlesnake-examples",
+  "keywords": [
+    "battlesnake",
+    "kotlin"
+  ]
+}

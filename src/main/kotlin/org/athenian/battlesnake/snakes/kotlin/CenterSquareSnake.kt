@@ -4,7 +4,7 @@ import io.battlesnake.core.*
 import org.athenian.battlesnake.snakes.kotlin.CenterSquareSnake.GameContext
 
 
-object CenterSquareSnake : BattleSnake<GameContext>() {
+object CenterSquareSnake : AbstractBattleSnake<GameContext>() {
 
     class GameContext : AbstractGameContext() {
         var goneToCenter = false

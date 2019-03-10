@@ -4,7 +4,7 @@ import io.battlesnake.core.*
 import org.athenian.battlesnake.snakes.kotlin.PerimeterSnake.GameContext
 
 
-object PerimeterSnake : BattleSnake<GameContext>() {
+object PerimeterSnake : AbstractBattleSnake<GameContext>() {
 
     class GameContext : AbstractGameContext() {
         lateinit var gotoOriginMoves: Iterator<MoveResponse>

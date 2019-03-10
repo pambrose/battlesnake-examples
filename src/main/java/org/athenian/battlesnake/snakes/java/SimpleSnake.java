@@ -5,11 +5,10 @@ import io.battlesnake.core.*;
 import static io.battlesnake.core.JavaConstants.*;
 import static org.athenian.battlesnake.snakes.java.SimpleSnake.GameContext;
 
-public class SimpleSnake extends BattleSnake<GameContext> {
+public class SimpleSnake extends AbstractBattleSnake<GameContext> {
 
     public static void main(String[] args) {
-        SimpleSnake snake = new SimpleSnake();
-        snake.run(8080);
+        new SimpleSnake().run(8080);
     }
 
     @Override

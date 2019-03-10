@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import static io.battlesnake.core.JavaConstants.*;
 import static org.athenian.battlesnake.snakes.java.PerimeterSnake.GameContext;
 
-public class PerimeterSnake extends BattleSnake<GameContext> {
+public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
 
     public static void main(String[] args) {
         new PerimeterSnake().run(8080);

@@ -3,7 +3,7 @@ package org.athenian.battlesnake.snakes.kotlin
 import io.battlesnake.core.*
 import org.athenian.battlesnake.snakes.kotlin.StripedSnake.GameContext
 
-object StripedSnake : BattleSnake<GameContext>() {
+object StripedSnake : AbstractBattleSnake<GameContext>() {
 
     class GameContext : AbstractGameContext() {
         lateinit var gotoOriginMoves: Iterator<MoveResponse>

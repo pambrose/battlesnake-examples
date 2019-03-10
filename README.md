@@ -1,4 +1,4 @@
-# Simple Battlesnakes
+# Examples of Battlesnakes 
 
 [![Build Status](https://travis-ci.org/pambrose/battlesnake-examples.svg?branch=master)](https://travis-ci.org/pambrose/battlesnake-examples)
 

@@ -3,7 +3,7 @@ package org.athenian.battlesnake.snakes.kotlin
 import io.battlesnake.core.*
 import org.athenian.battlesnake.snakes.kotlin.SimpleSnake.GameContext
 
-object SimpleSnake : BattleSnake<GameContext>() {
+object SimpleSnake : AbstractBattleSnake<GameContext>() {
 
     class GameContext : AbstractGameContext()
 

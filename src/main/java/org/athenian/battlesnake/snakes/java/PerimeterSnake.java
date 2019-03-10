@@ -22,13 +22,13 @@ public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
 
     @Override
     public Strategy<GameContext> gameStrategy() {
-        return new Strategy<GameContext>(true) {
+        return new AbstractStrategy<GameContext>(true) {
             @Override
             public StartResponse onStart(GameContext context, StartRequest request) {
                 // Add moves that get the snake to origin
                 Position pos = request.getYou().getHeadPosition();
-                context.addMoves(pos.getX(), LEFT)
-                        .addMoves(pos.getY(), UP);
+                context.addToPath(pos.getX(), LEFT)
+                        .addToPath(pos.getY(), UP);
 
                 return new StartResponse("#ff00ff", "beluga", "bolt");
             }
@@ -39,23 +39,23 @@ public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
                 if (request.isAtOrigin()) {
                     int width = request.getBoard().getWidth();
                     int height = request.getBoard().getHeight();
-                    context.addMoves(width - 1, RIGHT)
-                            .addMoves(height - 1, DOWN)
-                            .addMoves(width - 1, LEFT)
-                            .addMoves(height - 1, UP);
+                    context.addToPath(width - 1, RIGHT)
+                            .addToPath(height - 1, DOWN)
+                            .addToPath(width - 1, LEFT)
+                            .addToPath(height - 1, UP);
                 }
 
                 // Remove a move from the head of the list
-                return context.moves.remove(0);
+                return context.path.remove(0);
             }
         };
     }
 
     static class GameContext extends AbstractGameContext {
-        List<MoveResponse> moves = new LinkedList<>();
+        List<MoveResponse> path = new LinkedList<>();
 
-        GameContext addMoves(int count, MoveResponse reponse) {
-            IntStream.range(0, count).forEach(i -> moves.add(reponse));
+        GameContext addToPath(int count, MoveResponse reponse) {
+            IntStream.range(0, count).forEach(i -> path.add(reponse));
             return this;
         }
     }

@@ -17,7 +17,7 @@ object SimpleSnake : AbstractBattleSnake<GameContext>() {
 
             onMove { context: GameContext, request: MoveRequest ->
                 if (request.isFoodAvailable)
-                    moveTo(request, request.nearestFoodPosition)
+                    moveTo(request, nearestFood(request.headPosition, request.foodList).position)
                 else
                     moveTo(request, request.boardCenter)
             }
@@ -30,6 +30,9 @@ object SimpleSnake : AbstractBattleSnake<GameContext>() {
             request.headPosition.y > position.y -> UP
             else -> DOWN
         }
+
+    fun nearestFood(head: Position, foodList: List<Food>) =
+        foodList.maxBy { head - it.position }!!
 
     @JvmStatic
     fun main(args: Array<String>) {

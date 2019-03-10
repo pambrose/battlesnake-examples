@@ -53,14 +53,8 @@ object StripedSnake : AbstractBattleSnake<GameContext>() {
             onStart { context: GameContext, request: StartRequest ->
                 val you = request.you
                 val board = request.board
-                context.gotoOriginMoves = gotoOriginMovesSeq(
-                    you.headPosition.x,
-                    you.headPosition.y
-                ).iterator()
-                context.stripedMoves = stripedMovesSeq(
-                    board.width,
-                    board.height
-                ).iterator()
+                context.gotoOriginMoves = gotoOriginMovesSeq(you.headPosition.x, you.headPosition.y).iterator()
+                context.stripedMoves = stripedMovesSeq(board.width, board.height).iterator()
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 

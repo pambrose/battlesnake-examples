@@ -19,7 +19,7 @@ allprojects {
 def jvmVersion = '1.8'
 def jdkVersion = System.getProperty('java.version')
 def loggingVersion = '1.6.25'
-def dispatchVersion = '0.1.19'
+def dispatchVersion = '0.1.23'
 
 def VERSION = '0.1.0'
 def appName = 'battlesnake-examples'

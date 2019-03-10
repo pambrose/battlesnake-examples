@@ -31,7 +31,7 @@ object CenterSquareSnake : AbstractBattleSnake<GameContext>() {
                     context.goneToCenter = true
 
                 if (!context.goneToCenter)
-                    moveTo(request, request.boardUpperLeft)
+                    moveTo(request, request.boardCenter)
                 else
                     context.squareMoves.next()
             }

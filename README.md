@@ -31,22 +31,22 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 
 Assign the `mainName` variable in [build.gradle](build.gradle#L28) to the desired snake classname.
 
+Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
+
 Run the snake locally with: 
 ```bash
 ./gradlew run
 ```
-Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
 
-## Executable Jar
+## Executable UberJar
 
-Build an 
+Build the uberjar `build/libs/battlesnake-examples.jar` with:
+
 ```bash
 ./gradlew stage
 ```
 
-Will result in a jar file in `build/libs` called `battlesnake-examples.jar`
-
-You can run this file with the command:
+Run the uberjar with:
 
 ```bash
 java -jar build/libs/battlesnake-examples.jar

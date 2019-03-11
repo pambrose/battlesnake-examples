@@ -1,11 +1,11 @@
-#  BattleSnake Quickstart Snake Examples
+#  Battlesnake Quickstart Snake Examples
 
 [![Build Status](https://travis-ci.org/pambrose/battlesnake-examples.svg?branch=master)](https://travis-ci.org/pambrose/battlesnake-examples)
 
-A collection of simple [BattleSnakes](http://battlesnake.io) written in Kotlin and Java using 
-the [BattleSnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) framework.
+A collection of simple [Battlesnakes](http://battlesnake.io) written in Kotlin and Java using 
+the [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) framework.
 
-Visit [BattleSnake](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
+Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -29,13 +29,13 @@ Visit [BattleSnake](https://docs.battlesnake.io) for API documentation and instr
 
 ## Running a snake
 
-Assign the `mainName` variable in [build.gradle](build.gradle#L28) to the proper snake classname.
+Assign the `mainName` variable in [build.gradle](build.gradle#L28) to the desired snake classname.
 
 Run the snake locally with: 
 ```bash
 ./gradlew run
 ```
-Use [ngrok](https://ngrok.com) to make a locally running snake visible to the BattleSnake server.
+Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
 
 ## Executable Jar
 

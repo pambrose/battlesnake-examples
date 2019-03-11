@@ -14,7 +14,7 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 - Install [Kotlin](https://kotlinlang.org)
 - Install [Gradle](https://gradle.org/install/)
 
-## Snakes
+## Example Snakes
 
 ### Kotlin
 * [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
@@ -59,7 +59,7 @@ java -jar build/libs/battlesnake-examples.jar
 heroku create [APP_NAME]
 ```
 
-2) Deploy code to Heroku servers with:
+2) Deploy code to Heroku with:
 ```
 git push heroku master
 ```

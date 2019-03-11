@@ -10,12 +10,12 @@ stage:
 	./gradlew stage
 
 build-docker:
-	docker build -t pambrose/simple-snake:${VERSION} .
+	docker build -t pambrose/battlesnake-examples:${VERSION} .
 
 run-docker:
-	docker run -p 8080:8080 pambrose/simple-snake:${VERSION}
+	docker run -p 8080:8080 pambrose/battlesnake-examples:${VERSION}
 
 push-docker:
-	docker push pambrose/simple-snake:${VERSION}
+	docker push pambrose/battlesnake-examples:${VERSION}
 
 

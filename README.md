@@ -23,13 +23,13 @@ Visit [BattleSnake](https://docs.battlesnake.io) for API documentation and instr
 * [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
 
 ### Java
-* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/java/SimpleSnake.java)
-* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/java/PerimeterSnake.java)
+* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
+* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
 
 ## Running a snake
 
-Assign the `mainName` variable in [build.gradle](build.gradle) to the proper snake classname.
+Assign the `mainName` variable in [build.gradle](build.gradle#L28) to the proper snake classname.
 
 Run the snake locally with: 
 ```bash

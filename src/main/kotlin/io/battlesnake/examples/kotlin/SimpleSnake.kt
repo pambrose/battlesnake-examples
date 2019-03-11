@@ -1,23 +1,29 @@
-package org.athenian.battlesnake.snakes.kotlin
+package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import org.athenian.battlesnake.snakes.kotlin.SimpleSnake.GameContext
+import io.battlesnake.examples.kotlin.SimpleSnake.GameContext
 
 object SimpleSnake : AbstractBattleSnake<GameContext>() {
 
     class GameContext : AbstractGameContext()
 
-    override fun gameContext() = GameContext()
+    override fun gameContext(): GameContext = GameContext()
 
-    override fun gameStrategy() =
-        strategy<GameContext>(true) {
+    override fun gameStrategy(): Strategy<GameContext> =
+        strategy(true) {
             onStart { context: GameContext, request: StartRequest ->
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 
             onMove { context: GameContext, request: MoveRequest ->
                 if (request.isFoodAvailable)
-                    moveTo(request, nearestFood(request.headPosition, request.foodList).position)
+                    moveTo(
+                        request,
+                        nearestFood(
+                            request.headPosition,
+                            request.foodList
+                        ).position
+                    )
                 else
                     moveTo(request, request.boardCenter)
             }

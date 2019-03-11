@@ -1,7 +1,7 @@
-package org.athenian.battlesnake.snakes.kotlin
+package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import org.athenian.battlesnake.snakes.kotlin.CenterSquareSnake.GameContext
+import io.battlesnake.examples.kotlin.CenterSquareSnake.GameContext
 
 
 object CenterSquareSnake : AbstractBattleSnake<GameContext>() {
@@ -17,10 +17,10 @@ object CenterSquareSnake : AbstractBattleSnake<GameContext>() {
             }.iterator()
     }
 
-    override fun gameContext() = GameContext()
+    override fun gameContext(): GameContext = GameContext()
 
-    override fun gameStrategy() =
-        strategy<GameContext>(true) {
+    override fun gameStrategy(): Strategy<GameContext> =
+        strategy(true) {
 
             onStart { context: GameContext, request: StartRequest ->
                 StartResponse("#ff00ff", "beluga", "bolt")

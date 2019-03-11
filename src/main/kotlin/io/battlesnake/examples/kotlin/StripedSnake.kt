@@ -1,7 +1,7 @@
-package org.athenian.battlesnake.snakes.kotlin
+package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import org.athenian.battlesnake.snakes.kotlin.StripedSnake.GameContext
+import io.battlesnake.examples.kotlin.StripedSnake.GameContext
 
 object StripedSnake : AbstractBattleSnake<GameContext>() {
 
@@ -46,15 +46,21 @@ object StripedSnake : AbstractBattleSnake<GameContext>() {
             }
         }
 
-    override fun gameContext() = GameContext()
+    override fun gameContext(): GameContext = GameContext()
 
-    override fun gameStrategy() =
-        strategy<GameContext>(true) {
+    override fun gameStrategy(): Strategy<GameContext> =
+        strategy(true) {
             onStart { context: GameContext, request: StartRequest ->
                 val you = request.you
                 val board = request.board
-                context.gotoOriginMoves = gotoOriginMovesSeq(you.headPosition.x, you.headPosition.y).iterator()
-                context.stripedMoves = stripedMovesSeq(board.width, board.height).iterator()
+                context.gotoOriginMoves = gotoOriginMovesSeq(
+                    you.headPosition.x,
+                    you.headPosition.y
+                ).iterator()
+                context.stripedMoves = stripedMovesSeq(
+                    board.width,
+                    board.height
+                ).iterator()
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 

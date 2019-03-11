@@ -1,4 +1,4 @@
-package org.athenian.battlesnake.snakes.java;
+package io.battlesnake.examples.java;
 
 import io.battlesnake.core.*;
 
@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static io.battlesnake.core.JavaConstants.*;
-import static org.athenian.battlesnake.snakes.java.SimpleSnake.GameContext;
+import static io.battlesnake.examples.java.SimpleSnake.GameContext;
 
 public class SimpleSnake extends AbstractBattleSnake<GameContext> {
 
@@ -54,7 +54,6 @@ public class SimpleSnake extends AbstractBattleSnake<GameContext> {
                 .get()
                 .getPosition();
     }
-
 
     static class GameContext extends AbstractGameContext {
     }

@@ -1,7 +1,7 @@
-package org.athenian.battlesnake.snakes.kotlin
+package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import org.athenian.battlesnake.snakes.kotlin.PerimeterSnake.GameContext
+import io.battlesnake.examples.kotlin.PerimeterSnake.GameContext
 
 
 object PerimeterSnake : AbstractBattleSnake<GameContext>() {
@@ -28,10 +28,10 @@ object PerimeterSnake : AbstractBattleSnake<GameContext>() {
             }
         }
 
-    override fun gameContext() = GameContext()
+    override fun gameContext(): GameContext = GameContext()
 
-    override fun gameStrategy() =
-        strategy<GameContext>(true) {
+    override fun gameStrategy(): Strategy<GameContext> =
+        strategy(true) {
             onStart { context: GameContext, request: StartRequest ->
                 val you = request.you
                 val board = request.board

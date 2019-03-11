@@ -1,4 +1,4 @@
-package org.athenian.battlesnake.snakes.java;
+package io.battlesnake.examples.java;
 
 import io.battlesnake.core.*;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import static io.battlesnake.core.JavaConstants.*;
-import static org.athenian.battlesnake.snakes.java.PerimeterSnake.GameContext;
+import static io.battlesnake.examples.java.PerimeterSnake.GameContext;
 
 public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
 

@@ -1,9 +1,10 @@
 {
-  "name": "Battlesnake Snake Example",
-  "description": "A simple snake for Battlesnake",
+  "name": "BattleSnake Quickstart Snake Examples",
+  "description": "Examples using BattleSnake Quickstart",
   "repository": "https://github.com/pambrose/battlesnake-examples",
   "keywords": [
     "battlesnake",
-    "kotlin"
+    "kotlin",
+    "java"
   ]
 }

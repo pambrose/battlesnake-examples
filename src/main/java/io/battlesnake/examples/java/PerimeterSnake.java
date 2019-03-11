@@ -35,7 +35,7 @@ public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
 
             @Override
             public MoveResponse onMove(GameContext context, MoveRequest request) {
-                // If the snake is at the origin, add the moves for a lap around the board
+                // If the snake is at the origin, add the moves for a lap around the perimeter
                 if (request.isAtOrigin()) {
                     int width = request.getBoard().getWidth();
                     int height = request.getBoard().getHeight();

@@ -11,13 +11,13 @@ object StripedSnake : AbstractBattleSnake<GameContext>() {
         var goneToOrigin = false
     }
 
-    fun gotoOriginPath(x: Int, y: Int) =
+    fun originPath(x: Int, y: Int) =
         sequence {
             repeat(x) { yield(LEFT) }
             repeat(y) { yield(UP) }
         }.iterator()
 
-    fun stripedPath(width: Int, height: Int) =
+    fun stripePath(width: Int, height: Int) =
         sequence {
             while (true) {
                 repeat((height / 2) - 1) {
@@ -54,8 +54,8 @@ object StripedSnake : AbstractBattleSnake<GameContext>() {
             onStart { context: GameContext, request: StartRequest ->
                 val you = request.you
                 val board = request.board
-                context.gotoOriginMoves = gotoOriginPath(you.headPosition.x, you.headPosition.y)
-                context.stripedMoves = stripedPath(board.width, board.height)
+                context.gotoOriginMoves = originPath(you.headPosition.x, you.headPosition.y)
+                context.stripedMoves = stripePath(board.width, board.height)
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 

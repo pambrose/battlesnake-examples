@@ -11,13 +11,13 @@ object StripedSnake : AbstractBattleSnake<GameContext>() {
         var goneToOrigin = false
     }
 
-    fun gotoOriginMovesSeq(x: Int, y: Int) =
+    fun gotoOriginPath(x: Int, y: Int) =
         sequence {
             repeat(x) { yield(LEFT) }
             repeat(y) { yield(UP) }
-        }
+        }.iterator()
 
-    fun stripedMovesSeq(width: Int, height: Int) =
+    fun stripedPath(width: Int, height: Int) =
         sequence {
             while (true) {
                 repeat((height / 2) - 1) {
@@ -44,23 +44,18 @@ object StripedSnake : AbstractBattleSnake<GameContext>() {
                     repeat(height - 1) { yield(UP) }
                 }
             }
-        }
+        }.iterator()
 
     override fun gameContext(): GameContext = GameContext()
 
     override fun gameStrategy(): Strategy<GameContext> =
         strategy(true) {
+
             onStart { context: GameContext, request: StartRequest ->
                 val you = request.you
                 val board = request.board
-                context.gotoOriginMoves = gotoOriginMovesSeq(
-                    you.headPosition.x,
-                    you.headPosition.y
-                ).iterator()
-                context.stripedMoves = stripedMovesSeq(
-                    board.width,
-                    board.height
-                ).iterator()
+                context.gotoOriginMoves = gotoOriginPath(you.headPosition.x, you.headPosition.y)
+                context.stripedMoves = stripedPath(board.width, board.height)
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 

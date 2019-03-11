@@ -11,19 +11,14 @@ object SimpleSnake : AbstractBattleSnake<GameContext>() {
 
     override fun gameStrategy(): Strategy<GameContext> =
         strategy(true) {
+
             onStart { context: GameContext, request: StartRequest ->
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 
             onMove { context: GameContext, request: MoveRequest ->
                 if (request.isFoodAvailable)
-                    moveTo(
-                        request,
-                        nearestFood(
-                            request.headPosition,
-                            request.foodList
-                        ).position
-                    )
+                    moveTo(request, nearestFood(request.headPosition, request.foodList).position)
                 else
                     moveTo(request, request.boardCenter)
             }

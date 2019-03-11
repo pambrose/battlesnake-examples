@@ -16,10 +16,13 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 
 ## Example Snakes
 
+Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
+of the framework.
+
 ### Kotlin
 * [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
 * [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
 * [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
 
 ### Java

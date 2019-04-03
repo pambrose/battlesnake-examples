@@ -1,9 +1,8 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import io.battlesnake.examples.kotlin.StripedSnake.GameContext
 
-object StripedSnake : AbstractBattleSnake<GameContext>() {
+object StripedSnake : AbstractBattleSnake<StripedSnake.GameContext>() {
 
     class GameContext : AbstractGameContext() {
         lateinit var gotoOriginMoves: Iterator<MoveResponse>

@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 import static io.battlesnake.core.JavaConstants.*;
-import static io.battlesnake.examples.java.PerimeterSnake.GameContext;
 
-public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
+public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.GameContext> {
 
     public static void main(String[] args) {
         new PerimeterSnake().run(8080);
@@ -51,7 +50,7 @@ public class PerimeterSnake extends AbstractBattleSnake<GameContext> {
         };
     }
 
-    static class GameContext extends AbstractGameContext {
+    class GameContext extends AbstractGameContext {
         List<MoveResponse> path = new LinkedList<>();
 
         GameContext addToPath(int count, MoveResponse reponse) {

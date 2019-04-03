@@ -6,9 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 import static io.battlesnake.core.JavaConstants.*;
-import static io.battlesnake.examples.java.SimpleSnake.GameContext;
 
-public class SimpleSnake extends AbstractBattleSnake<GameContext> {
+public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
 
     public static void main(String[] args) {
         new SimpleSnake().run(8080);
@@ -55,6 +54,6 @@ public class SimpleSnake extends AbstractBattleSnake<GameContext> {
                 .getPosition();
     }
 
-    static class GameContext extends AbstractGameContext {
+    class GameContext extends AbstractGameContext {
     }
 }

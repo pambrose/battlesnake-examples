@@ -1,10 +1,9 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import io.battlesnake.examples.kotlin.CenterSquareSnake.GameContext
 
 
-object CenterSquareSnake : AbstractBattleSnake<GameContext>() {
+object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.GameContext>() {
 
     class GameContext : AbstractGameContext() {
         var goneToCenter = false

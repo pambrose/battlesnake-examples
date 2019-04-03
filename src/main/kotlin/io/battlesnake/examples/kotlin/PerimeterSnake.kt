@@ -1,10 +1,8 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import io.battlesnake.examples.kotlin.PerimeterSnake.GameContext
 
-
-object PerimeterSnake : AbstractBattleSnake<GameContext>() {
+object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.GameContext>() {
 
     class GameContext : AbstractGameContext() {
         lateinit var gotoOriginMoves: Iterator<MoveResponse>

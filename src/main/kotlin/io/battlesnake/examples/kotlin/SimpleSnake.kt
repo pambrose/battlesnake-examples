@@ -1,9 +1,8 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.*
-import io.battlesnake.examples.kotlin.SimpleSnake.GameContext
 
-object SimpleSnake : AbstractBattleSnake<GameContext>() {
+object SimpleSnake : AbstractBattleSnake<SimpleSnake.GameContext>() {
 
     class GameContext : AbstractGameContext()
 

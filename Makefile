@@ -18,4 +18,6 @@ run-docker:
 push-docker:
 	docker push pambrose/battlesnake-examples:${VERSION}
 
+versioncheck:
+	./gradlew dependencyUpdates
 

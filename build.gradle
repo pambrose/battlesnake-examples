@@ -16,7 +16,7 @@ allprojects {
 def jvmVersion = '1.8'
 def jdkVersion = System.getProperty('java.version')
 def loggingVersion = '1.6.25'
-def quickstartVersion = '0.2.1'
+def quickstartVersion = '0.2.3'
 
 def VERSION = '0.1.0'
 def appName = 'battlesnake-examples'
@@ -31,7 +31,7 @@ sourceCompatibility = jvmVersion
 
 dependencies {
     implementation "io.github.microutils:kotlin-logging:$loggingVersion"
-    implementation "com.github.pambrose:battlesnake-quickstart:$quickstartVersion"
+    implementation "com.github.pambrose:battlesnake-quickstart:${quickstartVersion}"
 }
 
 // This determines the main() executed with ./gradlew run

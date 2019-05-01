@@ -11,9 +11,9 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Requirements
-- Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- Install [Kotlin](https://kotlinlang.org)
-- Install [Gradle](https://gradle.org/install/)
+-   Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+-   Install [Kotlin](https://kotlinlang.org)
+-   Install [Gradle](https://gradle.org/install/)
 
 ## Example Snakes
 
@@ -21,14 +21,14 @@ Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstar
 of the framework.
 
 ### Kotlin
-* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
-* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
-* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
+*   [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
+*   [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+*   [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
+*   [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
 
 ### Java
-* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
-* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
+*   [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
+*   [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
 ## Running a snake
 

@@ -11,9 +11,9 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Requirements
--   Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
--   Install [Kotlin](https://kotlinlang.org)
--   Install [Gradle](https://gradle.org/install/)
+*   Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+*   Install [Kotlin](https://kotlinlang.org)
+*   Install [Gradle](https://gradle.org/install/)
 
 ## Example Snakes
 

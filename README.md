@@ -21,14 +21,14 @@ Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstar
 of the framework.
 
 ### Kotlin
-  * [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-  * [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
-  * [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
-  * [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
+* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
+* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
+* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
 
 ### Java
-  * [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
-  * [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
+* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
+* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
 ## Running a snake
 

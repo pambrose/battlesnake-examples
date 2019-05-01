@@ -51,9 +51,9 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.GameConte
     }
 
     class GameContext extends AbstractGameContext {
-        List<MoveResponse> path = new LinkedList<>();
+        private List<MoveResponse> path = new LinkedList<>();
 
-        GameContext addToPath(int count, MoveResponse reponse) {
+        private GameContext addToPath(int count, MoveResponse reponse) {
             IntStream.range(0, count).forEach(i -> path.add(reponse));
             return this;
         }

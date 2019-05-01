@@ -36,7 +36,7 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
         };
     }
 
-    MoveResponse moveTo(MoveRequest request, Position position) {
+    private MoveResponse moveTo(MoveRequest request, Position position) {
         if (request.getHeadPosition().getX() > position.getX())
             return LEFT;
         else if (request.getHeadPosition().getX() < position.getX())
@@ -47,7 +47,7 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
             return DOWN;
     }
 
-    Position nearestFood(Position headPosition, List<Food> foodList) {
+    private Position nearestFood(Position headPosition, List<Food> foodList) {
         return foodList.stream()
                 .min(Comparator.comparingInt(food -> headPosition.minus(food.getPosition())))
                 .get()

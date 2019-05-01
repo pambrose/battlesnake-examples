@@ -1,5 +1,4 @@
-@file:Suppress("UndocumentedPublicClass")
-
+@file:Suppress("UndocumentedPublicClass", "UndocumentedPublicFunction")
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.AbstractBattleSnake

@@ -32,7 +32,7 @@ of the framework.
 
 ## Running a snake
 
-Assign the `mainName` variable in [build.gradle](build.gradle#L28) to the desired snake classname.
+Assign the `mainName` variable in [build.gradle](build.gradle) to the desired snake classname.
 
 Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
 

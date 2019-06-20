@@ -1,4 +1,5 @@
 VERSION=0.1.0
+
 default: build-all
 
 build-all: clean stage

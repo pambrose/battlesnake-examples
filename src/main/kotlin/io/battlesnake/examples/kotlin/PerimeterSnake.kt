@@ -26,7 +26,7 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.GameContext>() {
         sequence {
             repeat(x) { yield(LEFT) }
             repeat(y) { yield(UP) }
-        }.iterator()
+        }
 
     fun perimeterPath(width: Int, height: Int) =
         sequence {
@@ -36,7 +36,7 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.GameContext>() {
                 repeat(width - 1) { yield(LEFT) }
                 repeat(height - 1) { yield(UP) }
             }
-        }.iterator()
+        }
 
     override fun gameContext(): GameContext = GameContext()
 
@@ -46,8 +46,8 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.GameContext>() {
             onStart { context: GameContext, request: StartRequest ->
                 val you = request.you
                 val board = request.board
-                context.gotoOriginMoves = originPath(you.headPosition.x, you.headPosition.y)
-                context.perimeterMoves = perimeterPath(board.width, board.height)
+                context.gotoOriginMoves = originPath(you.headPosition.x, you.headPosition.y).iterator()
+                context.perimeterMoves = perimeterPath(board.width, board.height).iterator()
                 StartResponse("#ff00ff", "beluga", "bolt")
             }
 

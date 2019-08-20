@@ -72,6 +72,6 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
                 .getPosition();
     }
 
-    class GameContext extends AbstractGameContext {
+    static class GameContext extends AbstractGameContext {
     }
 }

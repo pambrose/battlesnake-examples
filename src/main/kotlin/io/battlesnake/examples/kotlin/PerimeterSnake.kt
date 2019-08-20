@@ -22,13 +22,13 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.GameContext>() {
         var goneToOrigin = false
     }
 
-    fun originPath(x: Int, y: Int) =
+    private fun originPath(x: Int, y: Int) =
         sequence {
             repeat(x) { yield(LEFT) }
             repeat(y) { yield(UP) }
         }
 
-    fun perimeterPath(width: Int, height: Int) =
+    private fun perimeterPath(width: Int, height: Int) =
         sequence {
             while (true) {
                 repeat(width - 1) { yield(RIGHT) }

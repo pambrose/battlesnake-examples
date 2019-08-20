@@ -23,13 +23,13 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.GameContext>() {
         var goneToOrigin = false
     }
 
-    fun originPath(x: Int, y: Int) =
+    private fun originPath(x: Int, y: Int) =
         sequence {
             repeat(x) { yield(LEFT) }
             repeat(y) { yield(UP) }
         }
 
-    fun stripePath(width: Int, height: Int) =
+    private fun stripePath(width: Int, height: Int) =
         sequence {
             while (true) {
                 repeat((height / 2) - 1) {

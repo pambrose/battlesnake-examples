@@ -47,7 +47,7 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.GameContext>() 
             }
         }
 
-    fun moveTo(request: MoveRequest, position: Position) =
+    private fun moveTo(request: MoveRequest, position: Position) =
         when {
             request.headPosition.x > position.x -> LEFT
             request.headPosition.x < position.x -> RIGHT

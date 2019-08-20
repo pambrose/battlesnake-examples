@@ -36,7 +36,7 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.GameContext>() {
             }
         }
 
-    fun moveTo(request: MoveRequest, position: Position) =
+    private fun moveTo(request: MoveRequest, position: Position) =
         when {
             request.headPosition.x > position.x -> LEFT
             request.headPosition.x < position.x -> RIGHT
@@ -44,7 +44,7 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.GameContext>() {
             else -> DOWN
         }
 
-    fun nearestFood(head: Position, foodList: List<Food>) =
+    private fun nearestFood(head: Position, foodList: List<Food>) =
         foodList.maxBy { head - it.position }!!
 
     @JvmStatic

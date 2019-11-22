@@ -43,7 +43,7 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.GameContext>() {
                 yield(DOWN)
                 repeat(height - 1) { yield(LEFT) }
 
-                if (height.isOdd()) {
+                if (height.isOdd) {
                     // Finish odd bottom line
                     yield(DOWN)
                     repeat(width - 1) { yield(RIGHT) }

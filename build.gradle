@@ -1,62 +1,60 @@
 plugins {
-    id 'application'
-    id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.60'
-    id "com.github.ben-manes.versions" version "0.27.0"
+  id 'application'
+  id 'java'
+  id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+  id "com.github.ben-manes.versions" version "0.27.0"
 }
 
 allprojects {
-    repositories {
-        maven { url = 'https://maven-central.storage-download.googleapis.com/repos/central/data/' }
-        //maven { url "https://kotlin.bintray.com/kotlinx" }
-        //mavenCentral()
-        jcenter()
-        // Do not place this any higher in the order
-        // You will pick up a bad version of io.github.microutils:kotlin-logging
-        maven { url 'https://jitpack.io' }
-    }
+  repositories {
+    maven { url = 'https://maven-central.storage-download.googleapis.com/repos/central/data/' }
+    jcenter()
+    // Do not place this any higher in the order
+    // You will pick up a bad version of io.github.microutils:kotlin-logging
+    maven { url 'https://jitpack.io' }
+  }
 }
 
 def jdkVersion = System.getProperty('java.version')
-def jvmVersion = '1.8'
-def kotlinVersion = '1.3.60'
 def slf4jVersion = '1.7.28'
 def loggingVersion = '1.7.8'
-def quickstartVersion = '0.2.9'
+def quickstartVersion = '0.2.10'
 
-def VERSION = '0.1.0'
 def appName = 'battlesnake-examples'
 
 // Update this value to change the snake you want to run in the uberjar
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 
-group = 'io.battlenake'
-version = "${VERSION}-SNAPSHOT"
+sourceCompatibility = 1.8
+
 description = appName
-sourceCompatibility = jvmVersion
+group = 'io.battlenake'
+version = '0.1.0'
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    implementation "com.github.pambrose:battlesnake-quickstart:$quickstartVersion"
-    implementation "io.github.microutils:kotlin-logging:$loggingVersion"
-    implementation "org.slf4j:slf4j-simple:$slf4jVersion"
+  implementation platform('org.jetbrains.kotlin:kotlin-bom')
+
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+  implementation "com.github.pambrose:battlesnake-quickstart:$quickstartVersion"
+  implementation "io.github.microutils:kotlin-logging:$loggingVersion"
+  implementation "org.slf4j:slf4j-simple:$slf4jVersion"
 }
 
 // This determines the main() executed with ./gradlew run
 application {
-    mainClassName = mainName
+  mainClassName = mainName
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = jvmVersion
+  kotlinOptions.jvmTarget = '1.8'
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = jvmVersion
+  kotlinOptions.jvmTarget = '1.8'
 }
 
 test {
-    useJUnitPlatform()
+  useJUnitPlatform()
 }
 
 // Include build uberjars in heroku deploy
@@ -65,37 +63,37 @@ build.mustRunAfter clean
 
 // This task creates the uberjar that enables the app to run with: java -jar jarName
 task uberjar(type: Jar, dependsOn: [':compileJava', ':processResources']) {
-    baseName = appName
-    version = ''
+  baseName = appName
+  version = ''
 
-    from(configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }) {
-        exclude "META-INF/*.SF"
-        exclude "META-INF/*.DSA"
-        exclude "META-INF/*.RSA"
-    }
+  from(configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }) {
+    exclude "META-INF/*.SF"
+    exclude "META-INF/*.DSA"
+    exclude "META-INF/*.RSA"
+  }
 
-    manifest {
-        attributes 'Implementation-Title': appName,
-                'Implementation-Version': version,
-                'Built-Date': new Date(),
-                'Built-JDK': jdkVersion,
-                'Main-Class': mainName
-    }
+  manifest {
+    attributes 'Implementation-Title': appName,
+        'Implementation-Version': version,
+        'Built-Date': new Date(),
+        'Built-JDK': jdkVersion,
+        'Main-Class': mainName
+  }
 
-    with jar
+  with jar
 }
 
 startScripts.enabled = false
 
 // This task creates the shell scripts to run the app
 task simpleSnake(type: CreateStartScripts) {
-    mainClassName = mainName
-    applicationName = appName
-    outputDir = new File(project.buildDir, 'tmp')
-    classpath = startScripts.classpath
+  mainClassName = mainName
+  applicationName = appName
+  outputDir = new File(project.buildDir, 'tmp')
+  classpath = startScripts.classpath
 }
 
 applicationDistribution.into('bin') {
-    from(simpleSnake)
-    fileMode = 0755
+  from(simpleSnake)
+  fileMode = 0755
 }

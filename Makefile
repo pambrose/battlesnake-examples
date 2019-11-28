@@ -9,7 +9,7 @@ clean:
 
 compile: build
 
-build: clean
+build:
 	./gradlew build -xtest
 
 stage:

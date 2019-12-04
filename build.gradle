@@ -35,9 +35,9 @@ dependencies {
   implementation platform('org.jetbrains.kotlin:kotlin-bom')
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-  implementation "com.github.pambrose:battlesnake-quickstart:$quickstartVersion"
-  implementation "io.github.microutils:kotlin-logging:$loggingVersion"
-  implementation "org.slf4j:slf4j-simple:$slf4jVersion"
+  implementation "com.github.pambrose:battlesnake-quickstart:${quickstartVersion}"
+  implementation "io.github.microutils:kotlin-logging:${loggingVersion}"
+  implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
 }
 
 // This determines the main() executed with ./gradlew run

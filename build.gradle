@@ -3,6 +3,7 @@ plugins {
   id 'java'
   id 'org.jetbrains.kotlin.jvm' version '1.3.61'
   id "com.github.ben-manes.versions" version "0.27.0"
+  id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
 allprojects {
@@ -45,46 +46,6 @@ application {
   mainClassName = mainName
 }
 
-compileKotlin {
-  kotlinOptions.jvmTarget = '1.8'
-}
-
-compileTestKotlin {
-  kotlinOptions.jvmTarget = '1.8'
-}
-
-test {
-  useJUnitPlatform()
-}
-
-// Include build uberjars in heroku deploy
-task stage(dependsOn: ['uberjar', 'build', 'clean'])
-build.mustRunAfter clean
-
-// This task creates the uberjar that enables the app to run with: java -jar jarName
-task uberjar(type: Jar, dependsOn: [':compileJava', ':processResources']) {
-  baseName = appName
-  version = ''
-
-  from(configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }) {
-    exclude "META-INF/*.SF"
-    exclude "META-INF/*.DSA"
-    exclude "META-INF/*.RSA"
-  }
-
-  manifest {
-    attributes 'Implementation-Title': appName,
-        'Implementation-Version': version,
-        'Built-Date': new Date(),
-        'Built-JDK': jdkVersion,
-        'Main-Class': mainName
-  }
-
-  with jar
-}
-
-startScripts.enabled = false
-
 // This task creates the shell scripts to run the app
 task simpleSnake(type: CreateStartScripts) {
   mainClassName = mainName
@@ -96,4 +57,44 @@ task simpleSnake(type: CreateStartScripts) {
 applicationDistribution.into('bin') {
   from(simpleSnake)
   fileMode = 0755
+}
+
+// Include build uberjars in heroku deploy
+task stage(dependsOn: ['uberjar', 'build', 'clean'])
+build.mustRunAfter clean
+
+shadowJar {
+  mergeServiceFiles()
+}
+
+task uberjar(type: Jar, dependsOn: shadowJar) {
+  archiveFileName = 'battlesnake-examples.jar'
+  manifest {
+    attributes('Implementation-Title': appName)
+    attributes('Implementation-Version': version)
+    attributes('Built-Date': new Date())
+    attributes('Built-JDK': jdkVersion)
+    attributes('Main-Class': mainName)
+  }
+  from zipTree(shadowJar.archiveFile)
+}
+
+//startScripts.enabled = false
+
+compileKotlin {
+  kotlinOptions.jvmTarget = '1.8'
+}
+
+compileTestKotlin {
+  kotlinOptions.jvmTarget = '1.8'
+}
+
+test {
+  useJUnitPlatform()
+
+  testLogging {
+    events "passed", "skipped", "failed", "standardOut", "standardError"
+    exceptionFormat "full"
+    showStandardStreams = true
+  }
 }

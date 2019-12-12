@@ -12,6 +12,12 @@ compile: build
 build:
 	./gradlew build -xtest
 
+uberjar:
+	./gradlew uberjar
+
+run:
+	./gradlew run
+
 stage:
 	./gradlew stage
 

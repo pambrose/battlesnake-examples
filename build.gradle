@@ -21,7 +21,7 @@ def slf4jVersion = '1.7.28'
 def loggingVersion = '1.7.8'
 def quickstartVersion = '0.2.10'
 
-def appName = 'battlesnake-examples'
+def appName = 'snake'
 
 // Update this value to change the snake you want to run in the uberjar
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
@@ -40,6 +40,8 @@ dependencies {
   implementation "io.github.microutils:kotlin-logging:${loggingVersion}"
   implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
 }
+
+startScripts.enabled = false
 
 // This determines the main() executed with ./gradlew run
 application {
@@ -69,7 +71,7 @@ shadowJar {
 }
 
 task uberjar(type: Jar, dependsOn: shadowJar) {
-  archiveFileName = 'battlesnake-examples.jar'
+  archiveFileName = 'snake.jar'
   manifest {
     attributes('Implementation-Title': appName)
     attributes('Implementation-Version': version)
@@ -79,8 +81,6 @@ task uberjar(type: Jar, dependsOn: shadowJar) {
   }
   from zipTree(shadowJar.archiveFile)
 }
-
-//startScripts.enabled = false
 
 compileKotlin {
   kotlinOptions.jvmTarget = '1.8'

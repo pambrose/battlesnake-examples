@@ -37,23 +37,28 @@ Assign the `mainName` variable in [build.gradle](build.gradle) to the desired sn
 
 Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
 
+Build the snake locally with: 
+```bash
+./gradlew bin
+```
+
 Run the snake locally with: 
 ```bash
-./gradlew run
+build/install/battlesnake-examples/bin/snake
 ```
 
 ## Executable UberJar
 
-Build the uberjar `build/libs/battlesnake-examples.jar` with:
+Build the uberjar `build/libs/snake.jar` with:
 
 ```bash
-./gradlew stage
+./gradlew build
 ```
 
 Run the uberjar with:
 
 ```bash
-java -jar build/libs/battlesnake-examples.jar
+java -jar build/libs/snake.jar
 ```
 
 ## Deploying to Heroku

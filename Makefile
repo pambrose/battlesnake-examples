@@ -15,9 +15,11 @@ build:
 uberjar:
 	./gradlew uberjar
 
-run:
-	chmod +x ./gradlew
-	./gradlew run
+bin:
+	./gradlew installDist
+
+run: bin
+	build/install/battlesnake-examples/bin/snake
 
 stage:
 	./gradlew stage

@@ -1,1 +1,1 @@
-web: java -DPORT=$PORT -jar build/libs/battlesnake-examples.jar
+web: java -DPORT=$PORT -jar build/libs/snake.jar

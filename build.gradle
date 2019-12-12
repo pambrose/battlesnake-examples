@@ -44,7 +44,7 @@ dependencies {
 // This determines the main() executed with ./gradlew run
 application {
   mainClassName = mainName
-  applicationDefaultJvmArgs = ['-DPORT=80']
+  //applicationDefaultJvmArgs = ['-DPORT=8080']
 }
 
 // This task creates the shell scripts to run the app

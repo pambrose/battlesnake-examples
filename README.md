@@ -12,7 +12,7 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 [![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
 
 ## Requirements
-*   Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+*   Install Java 8+
 *   Install [Kotlin](https://kotlinlang.org)
 *   Install [Gradle](https://gradle.org/install/)
 

@@ -16,6 +16,7 @@ uberjar:
 	./gradlew uberjar
 
 run:
+	chmod +x ./gradlew
 	./gradlew run
 
 stage:

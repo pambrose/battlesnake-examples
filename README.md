@@ -12,9 +12,9 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 [![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
 
 ## Requirements
-*   Install Java 8+
-*   Install [Kotlin](https://kotlinlang.org)
-*   Install [Gradle](https://gradle.org/install/)
+* Java 8+
+* [Kotlin](https://kotlinlang.org)
+* [Gradle](https://gradle.org/install/)
 
 ## Example Snakes
 
@@ -22,16 +22,16 @@ Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstar
 of the framework.
 
 ### Kotlin
-*   [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-*   [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
-*   [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
-*   [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
+* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
+* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
+* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
 
 ### Java
-*   [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
-*   [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
+* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
+* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
-## Running a snake
+## Running a snake using a script
 
 Assign the `mainName` variable in [build.gradle](build.gradle) to the desired snake classname.
 
@@ -47,7 +47,7 @@ Run the snake locally with:
 build/install/battlesnake-examples/bin/snake
 ```
 
-## Executable UberJar
+## Running a snake using executable an uberJar
 
 Build the uberjar `build/libs/snake.jar` with:
 

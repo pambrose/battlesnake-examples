@@ -16,15 +16,14 @@ allprojects {
   }
 }
 
-def jdkVersion = System.getProperty('java.version')
-def slf4jVersion = '1.7.28'
-def loggingVersion = '1.7.8'
-def quickstartVersion = '0.2.10'
-
-def appName = 'snake'
-
 // Update this value to change the snake you want to run in the uberjar
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
+def appName = 'snake'
+
+def jdkVersion = System.getProperty('java.version')
+def loggingVersion = '1.7.8'
+def quickstartVersion = '7b18044'
+def slf4jVersion = '1.7.28'
 
 sourceCompatibility = 1.8
 

@@ -22,7 +22,7 @@ def appName = 'snake'
 
 def jdkVersion = System.getProperty('java.version')
 def loggingVersion = '1.7.8'
-def quickstartVersion = '7b18044'
+def quickstartVersion = 'b2dbb22'
 def slf4jVersion = '1.7.28'
 
 sourceCompatibility = 1.8

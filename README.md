@@ -9,6 +9,7 @@ the [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart)
 Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
 
 ## Requirements
 *   Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

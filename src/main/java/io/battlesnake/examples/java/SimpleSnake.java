@@ -1,12 +1,24 @@
 package io.battlesnake.examples.java;
 
-import io.battlesnake.core.*;
+import io.battlesnake.core.AbstractBattleSnake;
+import io.battlesnake.core.AbstractGameContext;
+import io.battlesnake.core.AbstractStrategy;
+import io.battlesnake.core.Food;
+import io.battlesnake.core.MoveRequest;
+import io.battlesnake.core.MoveResponse;
+import io.battlesnake.core.Position;
+import io.battlesnake.core.StartRequest;
+import io.battlesnake.core.StartResponse;
+import io.battlesnake.core.Strategy;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
 import java.util.List;
 
-import static io.battlesnake.core.JavaConstants.*;
+import static io.battlesnake.core.JavaConstants.DOWN;
+import static io.battlesnake.core.JavaConstants.LEFT;
+import static io.battlesnake.core.JavaConstants.RIGHT;
+import static io.battlesnake.core.JavaConstants.UP;
 
 public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
 

@@ -2,7 +2,18 @@
 
 package io.battlesnake.examples.kotlin
 
-import io.battlesnake.core.*
+import io.battlesnake.core.AbstractBattleSnake
+import io.battlesnake.core.AbstractGameContext
+import io.battlesnake.core.DOWN
+import io.battlesnake.core.LEFT
+import io.battlesnake.core.MoveRequest
+import io.battlesnake.core.Position
+import io.battlesnake.core.RIGHT
+import io.battlesnake.core.StartRequest
+import io.battlesnake.core.StartResponse
+import io.battlesnake.core.Strategy
+import io.battlesnake.core.UP
+import io.battlesnake.core.strategy
 
 object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.GameContext>() {
 

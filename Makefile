@@ -15,10 +15,10 @@ build:
 uberjar:
 	./gradlew uberjar
 
-bin:
+dist:
 	./gradlew installDist
 
-run: bin
+run: dist
 	build/install/battlesnake-examples/bin/snake
 
 stage:

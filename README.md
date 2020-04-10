@@ -32,15 +32,19 @@ of the framework.
 * [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
 * [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
-## Running a snake using a script
+## Specify desired snake
 
-Assign the `mainName` variable in [build.gradle](build.gradle) to the desired snake classname.
+Assign the `mainName` variable in [build.gradle](./build.gradle) to the desired snake classname.
+For example:
+```groovy
+def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
+```
 
-Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
+## Run a snake using a script
 
 Build the snake locally with: 
 ```bash
-./gradlew bin
+make script
 ```
 
 Run the snake locally with: 
@@ -48,7 +52,13 @@ Run the snake locally with:
 build/install/battlesnake-examples/bin/snake
 ```
 
-## Running a snake using executable an uberJar
+Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server:
+```bash
+ngrok http 8080
+```
+
+
+## Run a snake using an executable uberJar
 
 Build the uberjar `build/libs/snake.jar` with:
 

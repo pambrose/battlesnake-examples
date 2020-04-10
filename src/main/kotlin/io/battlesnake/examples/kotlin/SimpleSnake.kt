@@ -3,7 +3,7 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.AbstractBattleSnake
-import io.battlesnake.core.AbstractGameContext
+import io.battlesnake.core.AbstractSnakeContext
 import io.battlesnake.core.DOWN
 import io.battlesnake.core.Food
 import io.battlesnake.core.LEFT
@@ -16,20 +16,20 @@ import io.battlesnake.core.Strategy
 import io.battlesnake.core.UP
 import io.battlesnake.core.strategy
 
-object SimpleSnake : AbstractBattleSnake<SimpleSnake.GameContext>() {
+object SimpleSnake : AbstractBattleSnake<SimpleSnake.SnakeContext>() {
 
-  class GameContext : AbstractGameContext()
+  class SnakeContext(gameId: String, snakeId: String) : AbstractSnakeContext(gameId, snakeId)
 
-  override fun gameContext(): GameContext = GameContext()
+  override fun snakeContext(gameId: String, snakeId: String): SnakeContext = SnakeContext(gameId, snakeId)
 
-  override fun gameStrategy(): Strategy<GameContext> =
-    strategy(true) {
+  override fun gameStrategy(): Strategy<SnakeContext> =
+    strategy(verbose = true) {
 
-      onStart { context: GameContext, request: StartRequest ->
+      onStart { context: SnakeContext, request: StartRequest ->
         StartResponse("#ff00ff", "beluga", "bolt")
       }
 
-      onMove { context: GameContext, request: MoveRequest ->
+      onMove { context: SnakeContext, request: MoveRequest ->
         if (request.isFoodAvailable)
           moveTo(request, nearestFood(request.headPosition, request.foodList).position)
         else

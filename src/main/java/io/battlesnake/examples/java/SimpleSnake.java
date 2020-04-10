@@ -1,7 +1,7 @@
 package io.battlesnake.examples.java;
 
 import io.battlesnake.core.AbstractBattleSnake;
-import io.battlesnake.core.AbstractGameContext;
+import io.battlesnake.core.AbstractSnakeContext;
 import io.battlesnake.core.AbstractStrategy;
 import io.battlesnake.core.Food;
 import io.battlesnake.core.MoveRequest;
@@ -20,7 +20,7 @@ import static io.battlesnake.core.JavaConstants.LEFT;
 import static io.battlesnake.core.JavaConstants.RIGHT;
 import static io.battlesnake.core.JavaConstants.UP;
 
-public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
+public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.SnakeContext> {
 
   public static void main(String[] args) {
     new SimpleSnake().run(8080);
@@ -28,24 +28,24 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
 
   @NotNull
   @Override
-  public GameContext gameContext() {
-    return new GameContext();
+  public SnakeContext snakeContext(String gameId, String snakeId) {
+    return new SnakeContext(gameId, snakeId);
   }
 
   @NotNull
   @Override
-  public Strategy<GameContext> gameStrategy() {
-    return new AbstractStrategy<GameContext>(true) {
+  public Strategy<SnakeContext> gameStrategy() {
+    return new AbstractStrategy<SnakeContext>(true) {
 
       @NotNull
       @Override
-      public StartResponse onStart(@NotNull GameContext context, @NotNull StartRequest request) {
+      public StartResponse onStart(@NotNull SnakeContext context, @NotNull StartRequest request) {
         return new StartResponse("#ff00ff", "beluga", "bolt");
       }
 
       @NotNull
       @Override
-      public MoveResponse onMove(@NotNull GameContext context, @NotNull MoveRequest request) {
+      public MoveResponse onMove(@NotNull SnakeContext context, @NotNull MoveRequest request) {
         if (request.isFoodAvailable())
           return moveTo(request, nearestFood(request.getHeadPosition(), request.getFoodList()));
         else
@@ -72,6 +72,9 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.GameContext> {
         .getPosition();
   }
 
-  static class GameContext extends AbstractGameContext {
+  static class SnakeContext extends AbstractSnakeContext {
+    public SnakeContext(@NotNull String gameId, @NotNull String snakeId) {
+      super(gameId, snakeId);
+    }
   }
 }

@@ -1,7 +1,7 @@
 package io.battlesnake.examples.java;
 
 import io.battlesnake.core.AbstractBattleSnake;
-import io.battlesnake.core.AbstractGameContext;
+import io.battlesnake.core.AbstractSnakeContext;
 import io.battlesnake.core.AbstractStrategy;
 import io.battlesnake.core.MoveRequest;
 import io.battlesnake.core.MoveResponse;
@@ -20,7 +20,7 @@ import static io.battlesnake.core.JavaConstants.LEFT;
 import static io.battlesnake.core.JavaConstants.RIGHT;
 import static io.battlesnake.core.JavaConstants.UP;
 
-public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.GameContext> {
+public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.SnakeContext> {
 
   public static void main(String[] args) {
     new PerimeterSnake().run(8080);
@@ -28,18 +28,18 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.GameConte
 
   @NotNull
   @Override
-  public GameContext gameContext() {
-    return new GameContext();
+  public SnakeContext snakeContext(String gameId, String snakeId) {
+    return new SnakeContext(gameId, snakeId);
   }
 
   @NotNull
   @Override
-  public Strategy<GameContext> gameStrategy() {
-    return new AbstractStrategy<GameContext>(true) {
+  public Strategy<SnakeContext> gameStrategy() {
+    return new AbstractStrategy<SnakeContext>(true) {
 
       @NotNull
       @Override
-      public StartResponse onStart(@NotNull GameContext context, @NotNull StartRequest request) {
+      public StartResponse onStart(@NotNull SnakeContext context, @NotNull StartRequest request) {
         // Add moves that get the snake to origin
         Position pos = request.getYou().getHeadPosition();
         context.addToPath(pos.getX(), LEFT)
@@ -50,7 +50,7 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.GameConte
 
       @NotNull
       @Override
-      public MoveResponse onMove(@NotNull GameContext context, @NotNull MoveRequest request) {
+      public MoveResponse onMove(@NotNull SnakeContext context, @NotNull MoveRequest request) {
         // If the snake is at the origin, add the moves for a lap around the perimeter
         if (request.isAtOrigin()) {
           int width = request.getBoard().getWidth();
@@ -67,10 +67,15 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.GameConte
     };
   }
 
-  static class GameContext extends AbstractGameContext {
+  static class SnakeContext extends AbstractSnakeContext {
+
+    public SnakeContext(@NotNull String gameId, @NotNull String snakeId) {
+      super(gameId, snakeId);
+    }
+
     private List<MoveResponse> path = new LinkedList<>();
 
-    private GameContext addToPath(int count, MoveResponse response) {
+    private SnakeContext addToPath(int count, MoveResponse response) {
       IntStream.range(0, count).forEach(i -> path.add(response));
       return this;
     }

@@ -17,13 +17,13 @@ import io.battlesnake.core.strategy
 
 object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.SnakeContext>() {
 
-  class SnakeContext(gameId: String, snakeId: String) : AbstractSnakeContext(gameId, snakeId) {
+  class SnakeContext : AbstractSnakeContext() {
     lateinit var gotoOriginMoves: Iterator<MoveResponse>
     lateinit var perimeterMoves: Iterator<MoveResponse>
     var goneToOrigin = false
   }
 
-  override fun snakeContext(gameId: String, snakeId: String): SnakeContext = SnakeContext(gameId, snakeId)
+  override fun snakeContext(): SnakeContext = SnakeContext()
 
   override fun gameStrategy(): Strategy<SnakeContext> =
     strategy(verbose = true) {

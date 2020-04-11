@@ -18,9 +18,9 @@ import io.battlesnake.core.strategy
 
 object SimpleSnake : AbstractBattleSnake<SimpleSnake.SnakeContext>() {
 
-  class SnakeContext(gameId: String, snakeId: String) : AbstractSnakeContext(gameId, snakeId)
+  class SnakeContext : AbstractSnakeContext()
 
-  override fun snakeContext(gameId: String, snakeId: String): SnakeContext = SnakeContext(gameId, snakeId)
+  override fun snakeContext(): SnakeContext = SnakeContext()
 
   override fun gameStrategy(): Strategy<SnakeContext> =
     strategy(verbose = true) {

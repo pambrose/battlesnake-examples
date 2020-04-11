@@ -17,7 +17,7 @@ import io.battlesnake.core.strategy
 
 object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.SnakeContext>() {
 
-  class SnakeContext(gameId: String, snakeId: String) : AbstractSnakeContext(gameId, snakeId) {
+  class SnakeContext : AbstractSnakeContext() {
     var goneToCenter = false
 
     val squareMoves =
@@ -28,7 +28,7 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.SnakeContext>()
       }.iterator()
   }
 
-  override fun snakeContext(gameId: String, snakeId: String): SnakeContext = SnakeContext(gameId, snakeId)
+  override fun snakeContext(): SnakeContext = SnakeContext()
 
   override fun gameStrategy(): Strategy<SnakeContext> =
     strategy(verbose = true) {

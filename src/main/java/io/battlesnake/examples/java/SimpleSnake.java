@@ -10,7 +10,6 @@ import io.battlesnake.core.Position;
 import io.battlesnake.core.StartRequest;
 import io.battlesnake.core.StartResponse;
 import io.battlesnake.core.Strategy;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
 import java.util.List;
@@ -26,30 +25,32 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.SnakeContext> {
     new SimpleSnake().run(8080);
   }
 
-  @NotNull
   @Override
-  public SnakeContext snakeContext(String gameId, String snakeId) {
-    return new SnakeContext(gameId, snakeId);
+  public SnakeContext snakeContext() {
+    return new SnakeContext();
   }
 
-  @NotNull
   @Override
   public Strategy<SnakeContext> gameStrategy() {
     return new AbstractStrategy<SnakeContext>(true) {
 
-      @NotNull
       @Override
-      public StartResponse onStart(@NotNull SnakeContext context, @NotNull StartRequest request) {
+      public StartResponse onStart(SnakeContext context, StartRequest request) {
         return new StartResponse("#ff00ff", "beluga", "bolt");
       }
 
-      @NotNull
       @Override
-      public MoveResponse onMove(@NotNull SnakeContext context, @NotNull MoveRequest request) {
-        if (request.isFoodAvailable())
-          return moveTo(request, nearestFood(request.getHeadPosition(), request.getFoodList()));
-        else
-          return moveTo(request, request.getBoardCenter());
+      public MoveResponse onMove(SnakeContext context, MoveRequest request) {
+        List<Food> foodList = request.getFoodList();
+        Position headPosition = request.getHeadPosition();
+        Position boardCenter = request.getBoardCenter();
+        // Go to the center if the foodList is empty
+        Position newPosition =
+            foodList.stream()
+                .min(Comparator.comparingInt(food -> headPosition.minus(food.getPosition())))
+                .map(Food::getPosition)
+                .orElse(boardCenter);
+        return moveTo(request, newPosition);
       }
     };
   }
@@ -65,16 +66,6 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.SnakeContext> {
       return DOWN;
   }
 
-  private Position nearestFood(Position headPosition, List<Food> foodList) {
-    return foodList.stream()
-        .min(Comparator.comparingInt(food -> headPosition.minus(food.getPosition())))
-        .get()
-        .getPosition();
-  }
-
   static class SnakeContext extends AbstractSnakeContext {
-    public SnakeContext(@NotNull String gameId, @NotNull String snakeId) {
-      super(gameId, snakeId);
-    }
   }
 }

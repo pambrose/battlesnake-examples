@@ -40,57 +40,38 @@ For example:
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 ```
 
-## Run a snake using a script
+## Deployment
 
-Build the snake locally with: 
-```bash
-make script
-```
-
-Run the snake locally with: 
-```bash
-build/install/battlesnake-examples/bin/snake
-```
+### Deploy locally
 
 Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server:
 ```bash
 ngrok http 8080
 ```
 
+Use the ngrok *http* address printed in the console for your snake URL on the Battlesnake website.
+ 
+You can run your snake with a script or as an uberjar.
 
-## Run a snake using an executable uberJar
+Build the script `build/install/battlesnake-examples/bin/snake` with: `make script` 
+and run it with: `make run`.
 
-Build the uberjar `build/libs/snake.jar` with:
+Build the uberjar `build/libs/snake.jar` with: `./gradlew build` 
+and run it with: `java -jar build/libs/snake.jar`
 
-```bash
-./gradlew build
-```
+### Deploy with Gitpod
+Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
+badge above and follow the *Deploy locally* instructions. 
 
-Run the uberjar with:
+Click on 
 
-```bash
-java -jar build/libs/snake.jar
-```
+### Deploy to Heroku
 
-## Deploying to Heroku
+1) Create a new Heroku app with: `heroku create [APP_NAME]`
 
-1) Create a new Heroku app with:
-```bash
-heroku create [APP_NAME]
-```
+2) Deploy code to Heroku with: `git push heroku master`
 
-2) Deploy code to Heroku with:
-```bash
-git push heroku master
-```
-
-3) Open Heroku app in browser with:
-```bash
-heroku open
-```
+3) Open the Heroku app in a browser with: `heroku open` 
 or visit [http://APP_NAME.herokuapp.com](http://APP_NAME.herokuapp.com).
 
-4) View server logs with the `heroku logs` command with:
-```bash
-heroku logs --tail
-```
+4) View the server logs with: `heroku logs --tail`

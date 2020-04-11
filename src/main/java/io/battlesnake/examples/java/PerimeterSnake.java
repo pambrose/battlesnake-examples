@@ -9,7 +9,6 @@ import io.battlesnake.core.Position;
 import io.battlesnake.core.StartRequest;
 import io.battlesnake.core.StartResponse;
 import io.battlesnake.core.Strategy;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -26,20 +25,17 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.SnakeCont
     new PerimeterSnake().run(8080);
   }
 
-  @NotNull
   @Override
-  public SnakeContext snakeContext(String gameId, String snakeId) {
-    return new SnakeContext(gameId, snakeId);
+  public SnakeContext snakeContext() {
+    return new SnakeContext();
   }
 
-  @NotNull
   @Override
   public Strategy<SnakeContext> gameStrategy() {
     return new AbstractStrategy<SnakeContext>(true) {
 
-      @NotNull
       @Override
-      public StartResponse onStart(@NotNull SnakeContext context, @NotNull StartRequest request) {
+      public StartResponse onStart(SnakeContext context, StartRequest request) {
         // Add moves that get the snake to origin
         Position pos = request.getYou().getHeadPosition();
         context.addToPath(pos.getX(), LEFT)
@@ -48,9 +44,8 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.SnakeCont
         return new StartResponse("#ff00ff", "beluga", "bolt");
       }
 
-      @NotNull
       @Override
-      public MoveResponse onMove(@NotNull SnakeContext context, @NotNull MoveRequest request) {
+      public MoveResponse onMove(SnakeContext context, MoveRequest request) {
         // If the snake is at the origin, add the moves for a lap around the perimeter
         if (request.isAtOrigin()) {
           int width = request.getBoard().getWidth();
@@ -69,11 +64,7 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.SnakeCont
 
   static class SnakeContext extends AbstractSnakeContext {
 
-    public SnakeContext(@NotNull String gameId, @NotNull String snakeId) {
-      super(gameId, snakeId);
-    }
-
-    private List<MoveResponse> path = new LinkedList<>();
+    private final List<MoveResponse> path = new LinkedList<>();
 
     private SnakeContext addToPath(int count, MoveResponse response) {
       IntStream.range(0, count).forEach(i -> path.add(response));

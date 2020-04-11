@@ -48,17 +48,26 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
  
 3) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
-### Gitpod
+### [Gitpod](https://gitpod.io)
 
 1) Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
 badge above.
  
-2) Follow the [Snake Execution](https://github.com/pambrose/battlesnake-examples#snake-execution) instructions to run a snake. 
+2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
 3) After starting the snake, click on **Open Browser** on the pop-up window and use the displayed URL 
 as the snake URL. 
 
-### Heroku
+### [repl.it](https://repl.it)
+
+1) Click on the [run on repl.it](https://repl.it/github/pambrose/battlesnake-examples)
+badge above.
+ 
+2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
+
+3) After starting the snake, use the URL in the repl.it browser as the snake URL. 
+
+### [Heroku](https://www.heroku.com)
 
 1) Create a new Heroku app with: `heroku create [APP_NAME]`
 

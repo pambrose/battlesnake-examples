@@ -49,7 +49,7 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
 ngrok http 8080
 ```
 
-Use the ngrok *http* address printed in the console for your snake URL on the Battlesnake website.
+Use the ngrok *http* address printed in the console for your snake URL.
  
 You can run your snake with a script or as an uberjar.
 
@@ -63,7 +63,8 @@ and run it with: `java -jar build/libs/snake.jar`
 Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
 badge above and follow the *Deploy locally* instructions. 
 
-Click on 
+After deploying, a window will pop up. Click on **Open in Browser** and 
+use the URL as the snake URL. 
 
 ### Deploy to Heroku
 
@@ -75,3 +76,5 @@ Click on
 or visit [http://APP_NAME.herokuapp.com](http://APP_NAME.herokuapp.com).
 
 4) View the server logs with: `heroku logs --tail`
+
+5) Use the Heroku URL address as the snake URL.

@@ -51,19 +51,17 @@ ngrok http 8080
 
 Use the ngrok *http* address printed in the console for your snake URL.
  
-You can run your snake with a script or as an uberjar.
+You can run your snake with a script or as an uberjar:
 
-Build the script `build/install/battlesnake-examples/bin/snake` with: `make script` 
-and run it with: `make run`.
+1) Build and run the script `build/install/battlesnake-examples/bin/snake` with: `make run`.
 
-Build the uberjar `build/libs/snake.jar` with: `./gradlew build` 
-and run it with: `java -jar build/libs/snake.jar`
+2) Build and run the uberjar `build/libs/snake.jar` with: `make uber`.
 
 ### Deploy with Gitpod
 Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
 badge above and follow the *Deploy locally* instructions. 
 
-After deploying, a window will pop up. Click on **Open in Browser** and 
+After deploying, a window will pop up. Click on **Open Browser** and 
 use the URL as the snake URL. 
 
 ### Deploy to Heroku

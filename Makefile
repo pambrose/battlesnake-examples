@@ -21,6 +21,9 @@ script:
 run: script
 	build/install/battlesnake-examples/bin/snake
 
+uber: build
+	java -jar build/libs/snake.jar
+
 stage:
 	./gradlew stage
 

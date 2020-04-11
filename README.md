@@ -46,7 +46,7 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
 
 2) Use the ngrok *http* address displayed on the ngrok console for your snake URL.
  
-3) Follow the [Snake Execution](./#snake-execution) instructions to run a snake. 
+3) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
 ### Gitpod
 

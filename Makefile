@@ -15,14 +15,14 @@ build:
 uberjar:
 	./gradlew uberjar
 
-script:
+uber: uberjar
+	java -jar build/libs/snake.jar
+
+dist:
 	./gradlew installDist
 
-run: script
+script: dist
 	build/install/battlesnake-examples/bin/snake
-
-uber: build
-	java -jar build/libs/snake.jar
 
 stage:
 	./gradlew stage

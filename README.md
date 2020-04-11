@@ -8,6 +8,9 @@ the [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart)
 
 Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
 
+Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
+of the framework.
+
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
@@ -17,54 +20,40 @@ Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instr
 * [Kotlin](https://kotlinlang.org)
 * [Gradle](https://gradle.org/install/)
 
-## Example Snakes
+## Specify Snake
 
-Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
-of the framework.
-
-### Kotlin
-* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
-* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
-* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
-
-### Java
-* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
-* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
-
-## Specify desired snake
-
-Assign the `mainName` variable in [build.gradle](./build.gradle) to the desired snake classname.
-For example:
+Assign the `mainName` variable in [build.gradle](./build.gradle) to the desired fully qualified 
+snake classname. For example:
 ```groovy
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 ```
 
-## Deployment
+## Snake Execution
 
-### Deploy locally
+You can run a snake with a script or as an uberjar:
+*  Build and run the script **build/install/battlesnake-examples/bin/snake** with: `make script`.
 
-Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server:
-```bash
-ngrok http 8080
-```
+* Build and run the uberjar **build/libs/snake.jar** with: `make uber`.
 
-Use the ngrok *http* address printed in the console for your snake URL.
+## Deployment Options
+
+### Locally
+
+Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
+
+1) Run ngrok with: `ngrok http 8080`
+
+2) Use the ngrok *http* address displayed on the ngrok console for your snake URL.
  
-You can run your snake with a script or as an uberjar:
-
-1) Build and run the script **build/install/battlesnake-examples/bin/snake** with: `make run`.
-
-2) Build and run the uberjar **build/libs/snake.jar** with: `make uber`.
-
-### Deploy with Gitpod
+### Gitpod
 
 Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
-badge above and follow the **Deploy locally** instructions in the previous section. 
+badge above and follow the **Snake Execution** instructions described earlier to run a snake. 
 
-After deploying, click on **Open Browser** on the pop-up window and use the URL as the snake URL. 
+After starting the snake, click on **Open Browser** on the pop-up window and use the displayed URL 
+as the snake URL. 
 
-### Deploy to Heroku
+### Heroku
 
 1) Create a new Heroku app with: `heroku create [APP_NAME]`
 
@@ -76,3 +65,15 @@ or visit [http://APP_NAME.herokuapp.com](http://APP_NAME.herokuapp.com).
 4) View the server logs with: `heroku logs --tail`
 
 5) Use the Heroku URL address as the snake URL.
+
+## Example Snakes
+
+### Kotlin
+* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
+* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
+* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
+
+### Java
+* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
+* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)

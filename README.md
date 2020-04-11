@@ -31,6 +31,7 @@ def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 ## Snake Execution
 
 You can run a snake with a script or as an uberjar:
+
 *  Build and run the script **build/install/battlesnake-examples/bin/snake** with: `make script`.
 
 * Build and run the uberjar **build/libs/snake.jar** with: `make uber`.
@@ -45,12 +46,16 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
 
 2) Use the ngrok *http* address displayed on the ngrok console for your snake URL.
  
+3) Follow the [Snake Execution](./#snake-execution) instructions to run a snake. 
+
 ### Gitpod
 
-Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
-badge above and follow the **Snake Execution** instructions described earlier to run a snake. 
+1) Click on the [Open in Gitpod](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
+badge above.
+ 
+2) Follow the [Snake Execution](https://github.com/pambrose/battlesnake-examples#snake-execution) instructions to run a snake. 
 
-After starting the snake, click on **Open Browser** on the pop-up window and use the displayed URL 
+3) After starting the snake, click on **Open Browser** on the pop-up window and use the displayed URL 
 as the snake URL. 
 
 ### Heroku

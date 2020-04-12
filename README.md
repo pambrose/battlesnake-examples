@@ -44,7 +44,7 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
 
 1) Run ngrok with: `ngrok http 8080`
 
-2) Use the ngrok *http* address displayed on the ngrok console for your snake URL.
+2) Use the ngrok **http** URL displayed on the ngrok console as the snake URL.
  
 3) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
@@ -55,8 +55,9 @@ badge above.
  
 2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
-3) After starting the snake, click on **Open Browser** on the pop-up window and use the displayed URL 
-as the snake URL. 
+3) After starting the snake, click on **Open Browser** on the pop-up window
+
+4) Use the URL displayed in the Gitpod browser window as the snake URL.
 
 ### [repl.it](https://repl.it)
 
@@ -65,7 +66,7 @@ badge above.
  
 2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
-3) After starting the snake, use the URL in the repl.it browser as the snake URL. 
+3) Use the URL displayed in the repl.it browser window as the snake URL.
 
 ### [Heroku](https://www.heroku.com)
 

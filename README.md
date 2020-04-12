@@ -22,7 +22,7 @@ of the framework.
 
 ## Specify Snake
 
-Assign the `mainName` variable in [build.gradle](./build.gradle) to the desired fully qualified 
+Assign the `mainName` variable in [build.gradle](./build.gradle#L20) to the desired fully qualified 
 snake classname. For example:
 ```groovy
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'

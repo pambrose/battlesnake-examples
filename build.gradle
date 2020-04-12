@@ -21,7 +21,7 @@ def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 def appName = 'snake'
 
 def loggingVersion = '1.7.9'
-def quickstartVersion = 'fa4b39c'
+def quickstartVersion = 'f8239e9'
 def slf4jVersion = '1.7.28'
 
 sourceCompatibility = 1.8

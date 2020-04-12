@@ -44,7 +44,7 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
 
 1) Run ngrok with: `ngrok http 8080`
 
-2) Use the ngrok **http** URL displayed on the ngrok console as the snake URL.
+2) Use either of the `Forwarding` URLs displayed in the ngrok console as the snake URL.
  
 3) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 

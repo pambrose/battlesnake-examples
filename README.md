@@ -12,15 +12,22 @@ Visit [Battlesnake.io](https://docs.battlesnake.io) for API documentation and in
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
 
-## Requirements
-* Java 8+
-* [Kotlin](https://kotlinlang.org)
-* [Gradle](https://gradle.org/install/)
-
 ## Snake Definition
 
 Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
 of how to define snakes for the framework.
+
+## Snake Examples
+
+### Kotlin
+* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
+* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
+* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
+
+### Java
+* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
+* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
 ## Snake Choice
 
@@ -36,7 +43,7 @@ def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 
 You can run a snake with a script or as an uberjar:
 
-*  Build and run the script **build/install/battlesnake-examples/bin/snake** with: `make script`.
+* Build and run the script **build/install/battlesnake-examples/bin/snake** with: `make script`.
 
 * Build and run the uberjar **build/libs/snake.jar** with: `make uber`.
 
@@ -59,7 +66,7 @@ badge above.
  
 2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
-3) After starting the snake, click on **Open Browser** on the pop-up window
+3) After starting the snake, click on **Open Browser** on the pop-up window.
 
 4) Use the URL displayed in the Gitpod browser window as the snake URL.
 
@@ -84,15 +91,3 @@ or visit [http://APP_NAME.herokuapp.com](http://APP_NAME.herokuapp.com).
 4) View the server logs with: `heroku logs --tail`
 
 5) Use the Heroku URL address as the snake URL.
-
-## Example Snakes
-
-### Kotlin
-* [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
-* [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
-* [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
-
-### Java
-* [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
-* [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)

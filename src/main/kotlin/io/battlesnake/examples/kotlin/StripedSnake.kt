@@ -18,14 +18,6 @@ import io.battlesnake.core.strategy
 
 object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
 
-  class MySnakeContext : SnakeContext() {
-    lateinit var gotoOriginMoves: Iterator<MoveResponse>
-    lateinit var stripedMoves: Iterator<MoveResponse>
-    var goneToOrigin = false
-  }
-
-  override fun snakeContext(): MySnakeContext = MySnakeContext()
-
   override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
@@ -44,6 +36,14 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
         (if (!context.goneToOrigin) context.gotoOriginMoves else context.stripedMoves).next()
       }
     }
+
+  override fun snakeContext(): MySnakeContext = MySnakeContext()
+
+  class MySnakeContext : SnakeContext() {
+    lateinit var gotoOriginMoves: Iterator<MoveResponse>
+    lateinit var stripedMoves: Iterator<MoveResponse>
+    var goneToOrigin = false
+  }
 
   private fun originPath(x: Int, y: Int) =
     sequence {

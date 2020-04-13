@@ -6,10 +6,7 @@
 A collection of simple [Battlesnakes](http://battlesnake.io) written in Kotlin and Java using 
 the [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) framework.
 
-Visit [Battlesnake](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
-
-Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
-of how to define snakes with the framework.
+Visit [Battlesnake.io](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
@@ -20,7 +17,14 @@ of how to define snakes with the framework.
 * [Kotlin](https://kotlinlang.org)
 * [Gradle](https://gradle.org/install/)
 
-## Specify Snake
+## Snake Definition
+
+Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
+of how to define snakes for the framework.
+
+## Snake Choice
+
+A server can support running multiple snakes, but they all must be the same snake object type.
 
 Assign the `mainName` variable in [build.gradle](./build.gradle#L20) to the desired fully qualified 
 snake classname. For example:
@@ -38,7 +42,7 @@ You can run a snake with a script or as an uberjar:
 
 ## Deployment Options
 
-### Locally
+### localhost
 
 Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
 

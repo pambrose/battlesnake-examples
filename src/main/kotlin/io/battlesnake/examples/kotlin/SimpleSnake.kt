@@ -18,12 +18,6 @@ import io.battlesnake.core.strategy
 
 object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
 
-  class MySnakeContext : SnakeContext() {
-    // Add whatever is necessary here
-  }
-
-  override fun snakeContext(): MySnakeContext = MySnakeContext()
-
   override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
@@ -38,6 +32,12 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
           moveTo(request, request.boardCenter)
       }
     }
+
+  override fun snakeContext(): MySnakeContext = MySnakeContext()
+
+  class MySnakeContext : SnakeContext() {
+    // Add whatever is necessary here
+  }
 
   private fun moveTo(request: MoveRequest, position: Position) =
     when {

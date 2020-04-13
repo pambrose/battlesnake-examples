@@ -17,19 +17,6 @@ import io.battlesnake.core.strategy
 
 object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.MySnakeContext>() {
 
-  class MySnakeContext : SnakeContext() {
-    var goneToCenter = false
-
-    val squareMoves =
-      sequence {
-        while (true)
-          for (move in listOf(RIGHT, DOWN, LEFT, UP))
-            repeat(4) { yield(move) }
-      }.iterator()
-  }
-
-  override fun snakeContext(): MySnakeContext = MySnakeContext()
-
   override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
@@ -47,6 +34,19 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.MySnakeContext>
           context.squareMoves.next()
       }
     }
+
+  override fun snakeContext(): MySnakeContext = MySnakeContext()
+
+  class MySnakeContext : SnakeContext() {
+    var goneToCenter = false
+
+    val squareMoves =
+      sequence {
+        while (true)
+          for (move in listOf(RIGHT, DOWN, LEFT, UP))
+            repeat(4) { yield(move) }
+      }.iterator()
+  }
 
   private fun moveTo(request: MoveRequest, position: Position) =
     when {

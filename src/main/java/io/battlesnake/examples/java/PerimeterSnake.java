@@ -20,10 +20,6 @@ import static io.battlesnake.core.JavaConstants.UP;
 
 public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.MySnakeContext> {
 
-  public static void main(String[] args) {
-    new PerimeterSnake().run(8080);
-  }
-
   @Override
   public MySnakeContext snakeContext() {
     return new MySnakeContext();
@@ -73,5 +69,9 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.MySnakeCo
       // Remove a move from the head of the list
       return context.path.remove(0);
     }
+  }
+
+  public static void main(String[] args) {
+    new PerimeterSnake().run(8080);
   }
 }

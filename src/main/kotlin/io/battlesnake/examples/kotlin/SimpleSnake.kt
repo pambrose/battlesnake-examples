@@ -3,33 +3,35 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.AbstractBattleSnake
-import io.battlesnake.core.AbstractSnakeContext
 import io.battlesnake.core.DOWN
 import io.battlesnake.core.Food
+import io.battlesnake.core.GameStrategy
 import io.battlesnake.core.LEFT
 import io.battlesnake.core.MoveRequest
 import io.battlesnake.core.Position
 import io.battlesnake.core.RIGHT
+import io.battlesnake.core.SnakeContext
 import io.battlesnake.core.StartRequest
 import io.battlesnake.core.StartResponse
-import io.battlesnake.core.Strategy
 import io.battlesnake.core.UP
 import io.battlesnake.core.strategy
 
-object SimpleSnake : AbstractBattleSnake<SimpleSnake.SnakeContext>() {
+object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
 
-  class SnakeContext : AbstractSnakeContext()
+  class MySnakeContext : SnakeContext() {
+    // Add whatever is necessary here
+  }
 
-  override fun snakeContext(): SnakeContext = SnakeContext()
+  override fun snakeContext(): MySnakeContext = MySnakeContext()
 
-  override fun gameStrategy(): Strategy<SnakeContext> =
+  override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
-      onStart { context: SnakeContext, request: StartRequest ->
+      onStart { context: MySnakeContext, request: StartRequest ->
         StartResponse("#ff00ff", "beluga", "bolt")
       }
 
-      onMove { context: SnakeContext, request: MoveRequest ->
+      onMove { context: MySnakeContext, request: MoveRequest ->
         if (request.isFoodAvailable)
           moveTo(request, nearestFood(request.headPosition, request.foodList).position)
         else

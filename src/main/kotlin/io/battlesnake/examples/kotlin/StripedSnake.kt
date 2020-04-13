@@ -3,33 +3,33 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.AbstractBattleSnake
-import io.battlesnake.core.AbstractSnakeContext
 import io.battlesnake.core.DOWN
+import io.battlesnake.core.GameStrategy
 import io.battlesnake.core.LEFT
 import io.battlesnake.core.MoveRequest
 import io.battlesnake.core.MoveResponse
 import io.battlesnake.core.RIGHT
+import io.battlesnake.core.SnakeContext
 import io.battlesnake.core.StartRequest
 import io.battlesnake.core.StartResponse
-import io.battlesnake.core.Strategy
 import io.battlesnake.core.UP
 import io.battlesnake.core.isOdd
 import io.battlesnake.core.strategy
 
-object StripedSnake : AbstractBattleSnake<StripedSnake.SnakeContext>() {
+object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
 
-  class SnakeContext : AbstractSnakeContext() {
+  class MySnakeContext : SnakeContext() {
     lateinit var gotoOriginMoves: Iterator<MoveResponse>
     lateinit var stripedMoves: Iterator<MoveResponse>
     var goneToOrigin = false
   }
 
-  override fun snakeContext(): SnakeContext = SnakeContext()
+  override fun snakeContext(): MySnakeContext = MySnakeContext()
 
-  override fun gameStrategy(): Strategy<SnakeContext> =
+  override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
-      onStart { context: SnakeContext, request: StartRequest ->
+      onStart { context: MySnakeContext, request: StartRequest ->
         val you = request.you
         val board = request.board
         context.gotoOriginMoves = originPath(you.headPosition.x, you.headPosition.y).iterator()
@@ -37,7 +37,7 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.SnakeContext>() {
         StartResponse("#ff00ff", "beluga", "bolt")
       }
 
-      onMove { context: SnakeContext, request: MoveRequest ->
+      onMove { context: MySnakeContext, request: MoveRequest ->
         if (request.isAtOrigin)
           context.goneToOrigin = true
 

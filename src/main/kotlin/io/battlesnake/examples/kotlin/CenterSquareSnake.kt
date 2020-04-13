@@ -3,21 +3,21 @@
 package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.AbstractBattleSnake
-import io.battlesnake.core.AbstractSnakeContext
 import io.battlesnake.core.DOWN
+import io.battlesnake.core.GameStrategy
 import io.battlesnake.core.LEFT
 import io.battlesnake.core.MoveRequest
 import io.battlesnake.core.Position
 import io.battlesnake.core.RIGHT
+import io.battlesnake.core.SnakeContext
 import io.battlesnake.core.StartRequest
 import io.battlesnake.core.StartResponse
-import io.battlesnake.core.Strategy
 import io.battlesnake.core.UP
 import io.battlesnake.core.strategy
 
-object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.SnakeContext>() {
+object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.MySnakeContext>() {
 
-  class SnakeContext : AbstractSnakeContext() {
+  class MySnakeContext : SnakeContext() {
     var goneToCenter = false
 
     val squareMoves =
@@ -28,16 +28,16 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.SnakeContext>()
       }.iterator()
   }
 
-  override fun snakeContext(): SnakeContext = SnakeContext()
+  override fun snakeContext(): MySnakeContext = MySnakeContext()
 
-  override fun gameStrategy(): Strategy<SnakeContext> =
+  override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
-      onStart { context: SnakeContext, request: StartRequest ->
+      onStart { context: MySnakeContext, request: StartRequest ->
         StartResponse("#ff00ff", "beluga", "bolt")
       }
 
-      onMove { context: SnakeContext, request: MoveRequest ->
+      onMove { context: MySnakeContext, request: MoveRequest ->
         if (request.isAtCenter)
           context.goneToCenter = true
 

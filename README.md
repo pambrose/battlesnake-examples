@@ -66,7 +66,7 @@ badge above.
  
 2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
-3) After starting the snake, click on **Open Browser** on the pop-up window.
+3) After starting the snake, click on **Open Preview** on the pop-up window.
 
 4) Use the URL displayed in the Gitpod browser window as the snake URL.
 

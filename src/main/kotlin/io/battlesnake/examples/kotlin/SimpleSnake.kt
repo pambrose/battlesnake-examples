@@ -20,6 +20,7 @@ package io.battlesnake.examples.kotlin
 
 import io.battlesnake.core.AbstractBattleSnake
 import io.battlesnake.core.DOWN
+import io.battlesnake.core.DescribeResponse
 import io.battlesnake.core.Food
 import io.battlesnake.core.GameStrategy
 import io.battlesnake.core.LEFT
@@ -27,18 +28,17 @@ import io.battlesnake.core.MoveRequest
 import io.battlesnake.core.Position
 import io.battlesnake.core.RIGHT
 import io.battlesnake.core.SnakeContext
-import io.battlesnake.core.StartRequest
-import io.battlesnake.core.StartResponse
 import io.battlesnake.core.UP
 import io.battlesnake.core.strategy
+import io.ktor.application.ApplicationCall
 
 object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
 
   override fun gameStrategy(): GameStrategy<MySnakeContext> =
     strategy(verbose = true) {
 
-      onStart { context: MySnakeContext, request: StartRequest ->
-        StartResponse("#ff00ff", "beluga", "bolt")
+      onDescribe { call: ApplicationCall ->
+        DescribeResponse("me", "#ff00ff", "beluga", "bolt")
       }
 
       onMove { context: MySnakeContext, request: MoveRequest ->
@@ -59,8 +59,8 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
     when {
       request.headPosition.x > position.x -> LEFT
       request.headPosition.x < position.x -> RIGHT
-      request.headPosition.y > position.y -> UP
-      else -> DOWN
+      request.headPosition.y > position.y -> DOWN
+      else -> UP
     }
 
   private fun nearestFood(head: Position, foodList: List<Food>) =

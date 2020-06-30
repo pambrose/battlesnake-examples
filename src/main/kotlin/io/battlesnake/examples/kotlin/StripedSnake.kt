@@ -54,7 +54,13 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
         if (request.isAtOrigin)
           context.goneToOrigin = true
 
-        (if (!context.goneToOrigin) context.gotoOriginMoves else context.stripedMoves).next()
+        val moves =
+          if (!context.goneToOrigin)
+            context.gotoOriginMoves
+          else
+            context.stripedMoves
+
+        moves.next()
       }
     }
 

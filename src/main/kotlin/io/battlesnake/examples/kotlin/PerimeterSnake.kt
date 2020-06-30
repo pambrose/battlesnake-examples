@@ -54,7 +54,13 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.MySnakeContext>() {
         if (request.isAtOrigin)
           context.goneToOrigin = true
 
-        (if (context.goneToOrigin) context.perimeterMoves else context.gotoOriginMoves).next()
+        val moves =
+          if (context.goneToOrigin)
+            context.perimeterMoves
+          else
+            context.gotoOriginMoves
+
+        moves.next()
       }
     }
 

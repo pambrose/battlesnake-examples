@@ -38,7 +38,7 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.MySnakeContext>() {
     strategy(verbose = true) {
 
       onDescribe { call: ApplicationCall ->
-        DescribeResponse("me", "#ff00ff", "beluga", "bolt")
+        DescribeResponse("me", "#ff0000", "beluga", "bolt")
       }
 
       onStart { context: MySnakeContext, request: StartRequest ->

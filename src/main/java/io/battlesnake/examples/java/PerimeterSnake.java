@@ -18,12 +18,13 @@ package io.battlesnake.examples.java;
 
 import io.battlesnake.core.AbstractBattleSnake;
 import io.battlesnake.core.AbstractGameStrategy;
+import io.battlesnake.core.DescribeResponse;
 import io.battlesnake.core.MoveRequest;
 import io.battlesnake.core.MoveResponse;
 import io.battlesnake.core.Position;
 import io.battlesnake.core.SnakeContext;
 import io.battlesnake.core.StartRequest;
-import io.battlesnake.core.StartResponse;
+import io.ktor.application.ApplicationCall;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -61,13 +62,16 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.MySnakeCo
     }
 
     @Override
-    public StartResponse onStart(MySnakeContext context, StartRequest request) {
+    public DescribeResponse onDescribe(ApplicationCall call) {
+      return new DescribeResponse("me", "#aaddff", "beluga", "bolt");
+    }
+
+    @Override
+    public void onStart(MySnakeContext context, StartRequest request) {
       // Add moves that get the snake to origin
       Position pos = request.getYou().getHeadPosition();
-      context.addToPath(pos.getX(), LEFT)
-          .addToPath(pos.getY(), UP);
-
-      return new StartResponse("#ff00ff", "beluga", "bolt");
+      context.addToPath(pos.getY(), DOWN)
+          .addToPath(pos.getX(), LEFT);
     }
 
     @Override
@@ -76,10 +80,10 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.MySnakeCo
       if (request.isAtOrigin()) {
         int width = request.getBoard().getWidth();
         int height = request.getBoard().getHeight();
-        context.addToPath(width - 1, RIGHT)
+        context.addToPath(height - 1, UP)
+            .addToPath(width - 1, RIGHT)
             .addToPath(height - 1, DOWN)
-            .addToPath(width - 1, LEFT)
-            .addToPath(height - 1, UP);
+            .addToPath(width - 1, LEFT);
       }
 
       // Remove a move from the head of the list

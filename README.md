@@ -55,7 +55,7 @@ Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Ba
 
 1) Run ngrok with: `ngrok http 8080`
 
-2) Use either of the `Forwarding` URLs displayed in the ngrok console as the snake URL.
+2) Use either of the `Forwarding` URLs displayed in the ngrok console as your snake URL.
  
 3) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
@@ -68,7 +68,8 @@ badge above.
 
 3) After starting the snake, click on **Open Preview** on the pop-up window.
 
-4) Use the URL displayed in the Gitpod browser window as the snake URL.
+4) Use the URL displayed in the Gitpod browser window as your snake URL. You can
+also visit the **/info** endpoint for more information.
 
 ### [repl.it](https://repl.it)
 
@@ -77,7 +78,8 @@ badge above.
  
 2) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
 
-3) Use the URL displayed in the repl.it browser window as the snake URL.
+3) Use the URL displayed in the repl.it browser window as your snake URL.
+You can also visit the **/info** endpoint for more information.
 
 ### [Heroku](https://www.heroku.com)
 
@@ -88,6 +90,8 @@ badge above.
 3) Open the Heroku app in a browser with: `heroku open` 
 or visit [http://APP_NAME.herokuapp.com](http://APP_NAME.herokuapp.com).
 
-4) View the server logs with: `heroku logs --tail`
+4) Use the Heroku URL address as your snake URL. You can
+also visit the **/info** endpoint for more information.
 
-5) Use the Heroku URL address as the snake URL.
+5) View the server logs with: `heroku logs --tail`
+

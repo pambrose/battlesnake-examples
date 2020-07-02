@@ -40,7 +40,7 @@ sourceCompatibility = 1.8
 
 description = appName
 group = 'io.battlenake'
-version = '0.1.0'
+version = '0.1.1'
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"

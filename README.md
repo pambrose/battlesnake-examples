@@ -29,17 +29,20 @@ of how to define kotlin and java snakes.
 * [SimpleSnake](src/main/java/io/battlesnake/examples/java/SimpleSnake.java)
 * [PerimeterSnake](src/main/java/io/battlesnake/examples/java/PerimeterSnake.java)
 
-## Snake Choice
+## Clone your own snake
 
-A server can support running multiple snakes, but they all must be the same snake object type.
+Use the [Battlesnake_Template](https://github.com/pambrose/battlesnake-template) to clone 
+the code for your own snake.
+
+## Snake Execution
+
+A server can support running multiple snakes, but they must be the same snake object type.
 
 Assign the `mainName` variable in [build.gradle](./build.gradle#L36) to the desired fully qualified 
 snake classname. For example:
 ```groovy
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
 ```
-
-## Snake Execution
 
 You can run a snake with a script or as an uberjar:
 

@@ -9,13 +9,13 @@ the [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart)
 Visit [Battlesnake.io](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
 
-## Snake Definition
+## Snake Definitions
 
 Visit [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart) for a description
-of how to define snakes for the framework.
+of how to define kotlin and java snakes.
 
 ## Snake Examples
 
@@ -33,7 +33,7 @@ of how to define snakes for the framework.
 
 A server can support running multiple snakes, but they all must be the same snake object type.
 
-Assign the `mainName` variable in [build.gradle](./build.gradle#L20) to the desired fully qualified 
+Assign the `mainName` variable in [build.gradle](./build.gradle#L36) to the desired fully qualified 
 snake classname. For example:
 ```groovy
 def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'

@@ -1,4 +1,4 @@
-VERSION=0.1.1
+VERSION=0.2.0
 
 default: build-all
 
@@ -40,4 +40,4 @@ versioncheck:
 	./gradlew dependencyUpdates
 
 upgrade-wrapper:
-	./gradlew wrapper --gradle-version=6.6 --distribution-type=bin
+	./gradlew wrapper --gradle-version=6.6.1 --distribution-type=bin

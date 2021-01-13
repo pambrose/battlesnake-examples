@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 Paul Ambrose (pambrose@mac.com)
+ * Copyright © 2021 Paul Ambrose (pambrose@mac.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,12 +25,13 @@ import io.battlesnake.core.Food
 import io.battlesnake.core.GameStrategy
 import io.battlesnake.core.LEFT
 import io.battlesnake.core.MoveRequest
+import io.battlesnake.core.MoveResponse
 import io.battlesnake.core.Position
 import io.battlesnake.core.RIGHT
 import io.battlesnake.core.SnakeContext
 import io.battlesnake.core.UP
 import io.battlesnake.core.strategy
-import io.ktor.application.ApplicationCall
+import io.ktor.application.*
 
 object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
 
@@ -55,7 +56,7 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
     // Add whatever is necessary here
   }
 
-  private fun moveTo(request: MoveRequest, position: Position) =
+  private fun moveTo(request: MoveRequest, position: Position): MoveResponse =
     when {
       request.headPosition.x > position.x -> LEFT
       request.headPosition.x < position.x -> RIGHT
@@ -63,8 +64,8 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
       else -> UP
     }
 
-  private fun nearestFood(head: Position, foodList: List<Food>) =
-    foodList.maxBy { head - it.position }!!
+  private fun nearestFood(head: Position, foodList: List<Food>): Food =
+    foodList.maxByOrNull { head - it.position }!!
 
   @JvmStatic
   fun main(args: Array<String>) {

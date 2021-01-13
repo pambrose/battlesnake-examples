@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 Paul Ambrose (pambrose@mac.com)
+ * Copyright © 2021 Paul Ambrose (pambrose@mac.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import io.battlesnake.core.SnakeContext
 import io.battlesnake.core.StartRequest
 import io.battlesnake.core.UP
 import io.battlesnake.core.strategy
-import io.ktor.application.ApplicationCall
+import io.ktor.application.*
 
 object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.MySnakeContext>() {
 
@@ -46,8 +46,8 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.MySnakeContext>() {
         val board = request.board
         context.gotoOriginMoves = originPath(you.headPosition.x, you.headPosition.y).iterator()
         context.perimeterMoves = perimeterPath(board.width, board.height).iterator()
-        logger.info { "Goto origin moves: ${you.headPosition.x},${you.headPosition.y} game id: ${request.gameId}" }
-        logger.info { "Perimeter moves: ${board.width}x${board.height} game id: ${request.gameId}" }
+        logger.info { "Position: ${you.headPosition.x},${you.headPosition.y} game id: ${request.gameId}" }
+        logger.info { "Board: ${board.width}x${board.height} game id: ${request.gameId}" }
       }
 
       onMove { context: MySnakeContext, request: MoveRequest ->
@@ -72,13 +72,13 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.MySnakeContext>() {
 
   override fun snakeContext(): MySnakeContext = MySnakeContext()
 
-  private fun originPath(x: Int, y: Int) =
+  private fun originPath(x: Int, y: Int): Sequence<MoveResponse> =
     sequence {
       repeat(y) { yield(DOWN) }
       repeat(x) { yield(LEFT) }
     }
 
-  private fun perimeterPath(width: Int, height: Int) =
+  private fun perimeterPath(width: Int, height: Int): Sequence<MoveResponse> =
     sequence {
       while (true) {
         repeat(height - 1) { yield(UP) }

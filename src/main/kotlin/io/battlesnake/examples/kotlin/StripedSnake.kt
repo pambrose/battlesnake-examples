@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 Paul Ambrose (pambrose@mac.com)
+ * Copyright © 2021 Paul Ambrose (pambrose@mac.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import io.battlesnake.core.StartRequest
 import io.battlesnake.core.UP
 import io.battlesnake.core.isOdd
 import io.battlesnake.core.strategy
-import io.ktor.application.ApplicationCall
+import io.ktor.application.*
 
 object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
 
@@ -72,13 +72,13 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
     var goneToOrigin = false
   }
 
-  private fun originPath(x: Int, y: Int) =
+  private fun originPath(x: Int, y: Int): Sequence<MoveResponse> =
     sequence {
       repeat(x) { yield(LEFT) }
       repeat(y) { yield(DOWN) }
     }
 
-  private fun stripePath(width: Int, height: Int) =
+  private fun stripePath(width: Int, height: Int): Sequence<MoveResponse> =
     sequence {
       while (true) {
         repeat((height / 2) - 1) {

@@ -9,7 +9,7 @@ the [Battlesnake Quickstart](https://github.com/pambrose/battlesnake-quickstart)
 Visit [Battlesnake.io](https://docs.battlesnake.io) for API documentation and instructions for creating a game.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/pambrose/battlesnake-examples)
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/pambrose/battlesnake-examples)
 [![Run on Repl.it](https://repl.it/badge/github/pambrose/battlesnake-examples)](https://repl.it/github/pambrose/battlesnake-examples)
 
 ## Snake Definitions

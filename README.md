@@ -55,13 +55,23 @@ You can run a snake with a script or as an uberjar:
 
 ### localhost
 
-Use [ngrok](https://ngrok.com) to make a locally running snake visible to the Battlesnake server.
+Use [localtunnel](https://theboroer.github.io/localtunnel-www/) to make a locally running snake visible to the
+Battlesnake server.
+
+1) Run localtunnel with: `lt --port 8080`
+
+2) Use the URL returned as your snake URL.
+
+3) Follow the [Snake Execution](#snake-execution) instructions to run a snake.
+
+You can also use [ngrok](https://ngrok.com), but unpaid users may experience "429 Too Many Requests" errors, which will
+cause your snake to move UP.
 
 1) Run ngrok with: `ngrok http 8080`
 
 2) Use either of the `Forwarding` URLs displayed in the ngrok console as your snake URL.
- 
-3) Follow the [Snake Execution](#snake-execution) instructions to run a snake. 
+
+3) Follow the [Snake Execution](#snake-execution) instructions to run a snake.
 
 ### [Gitpod](https://gitpod.io)
 

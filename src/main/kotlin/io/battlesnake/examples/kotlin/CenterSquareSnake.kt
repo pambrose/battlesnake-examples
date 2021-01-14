@@ -42,10 +42,18 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.MySnakeContext>
       }
 
       onMove { context: MySnakeContext, request: MoveRequest ->
-        if (request.isAtCenter)
-          context.goneToCenter = true
+        fun moveTo(request: MoveRequest, position: Position): MoveResponse =
+          when {
+            request.headPosition.x > position.x -> LEFT
+            request.headPosition.x < position.x -> RIGHT
+            request.headPosition.y > position.y -> DOWN
+            else -> UP
+          }
 
-        if (!context.goneToCenter)
+        if (request.isAtCenter)
+          context.visitedCenter = true
+
+        if (!context.visitedCenter)
           moveTo(request, request.boardCenter)
         else
           context.squareMoves.next()
@@ -55,7 +63,7 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.MySnakeContext>
   override fun snakeContext(): MySnakeContext = MySnakeContext()
 
   class MySnakeContext : SnakeContext() {
-    var goneToCenter = false
+    var visitedCenter = false
 
     val squareMoves: Iterator<MoveResponse> =
       sequence {
@@ -64,14 +72,6 @@ object CenterSquareSnake : AbstractBattleSnake<CenterSquareSnake.MySnakeContext>
             repeat(4) { yield(move) }
       }.iterator()
   }
-
-  private fun moveTo(request: MoveRequest, position: Position): MoveResponse =
-    when {
-      request.headPosition.x > position.x -> LEFT
-      request.headPosition.x < position.x -> RIGHT
-      request.headPosition.y > position.y -> DOWN
-      else -> UP
-    }
 
   @JvmStatic
   fun main(args: Array<String>) {

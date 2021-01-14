@@ -50,10 +50,11 @@ object PerimeterSnakeWithLists : AbstractBattleSnake<PerimeterSnakeWithLists.MyS
 
         val you = request.you
         val board = request.board
+        val pos = you.headPosition
 
-        context.moves = originPath(you.headPosition.x, you.headPosition.y).iterator()
+        context.moves = originPath(pos.x, pos.y).iterator()
 
-        logger.info { "Position: ${you.headPosition.x},${you.headPosition.y} game id: ${request.gameId}" }
+        logger.info { "Position: ${pos.x},${pos.y} game id: ${request.gameId}" }
         logger.info { "Board: ${board.width}x${board.height} game id: ${request.gameId}" }
       }
 

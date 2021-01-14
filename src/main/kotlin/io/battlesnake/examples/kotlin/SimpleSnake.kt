@@ -43,6 +43,17 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
       }
 
       onMove { context: MySnakeContext, request: MoveRequest ->
+        fun moveTo(request: MoveRequest, position: Position): MoveResponse =
+          when {
+            request.headPosition.x > position.x -> LEFT
+            request.headPosition.x < position.x -> RIGHT
+            request.headPosition.y > position.y -> DOWN
+            else -> UP
+          }
+
+        fun nearestFood(head: Position, foodList: List<Food>): Food =
+          foodList.maxByOrNull { head - it.position }!!
+
         if (request.isFoodAvailable)
           moveTo(request, nearestFood(request.headPosition, request.foodList).position)
         else
@@ -55,17 +66,6 @@ object SimpleSnake : AbstractBattleSnake<SimpleSnake.MySnakeContext>() {
   class MySnakeContext : SnakeContext() {
     // Add whatever is necessary here
   }
-
-  private fun moveTo(request: MoveRequest, position: Position): MoveResponse =
-    when {
-      request.headPosition.x > position.x -> LEFT
-      request.headPosition.x < position.x -> RIGHT
-      request.headPosition.y > position.y -> DOWN
-      else -> UP
-    }
-
-  private fun nearestFood(head: Position, foodList: List<Food>): Food =
-    foodList.maxByOrNull { head - it.position }!!
 
   @JvmStatic
   fun main(args: Array<String>) {

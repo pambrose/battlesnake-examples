@@ -52,15 +52,12 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
 
       onMove { context: MySnakeContext, request: MoveRequest ->
         if (request.isAtOrigin)
-          context.goneToOrigin = true
+          context.visitedOrigin = true
 
-        val moves =
-          if (!context.goneToOrigin)
-            context.gotoOriginMoves
-          else
-            context.stripedMoves
-
-        moves.next()
+        if (!context.visitedOrigin)
+          context.gotoOriginMoves.next()
+        else
+          context.stripedMoves.next()
       }
     }
 
@@ -69,7 +66,7 @@ object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
   class MySnakeContext : SnakeContext() {
     lateinit var gotoOriginMoves: Iterator<MoveResponse>
     lateinit var stripedMoves: Iterator<MoveResponse>
-    var goneToOrigin = false
+    var visitedOrigin = false
   }
 
   private fun originPath(x: Int, y: Int): Sequence<MoveResponse> =

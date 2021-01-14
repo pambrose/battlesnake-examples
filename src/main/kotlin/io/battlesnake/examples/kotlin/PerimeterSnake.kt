@@ -44,8 +44,10 @@ object PerimeterSnake : AbstractBattleSnake<PerimeterSnake.MySnakeContext>() {
       onStart { context: MySnakeContext, request: StartRequest ->
         val you = request.you
         val board = request.board
+
         context.gotoOriginMoves = originPath(you.headPosition.x, you.headPosition.y).iterator()
         context.perimeterMoves = perimeterPath(board.width, board.height).iterator()
+
         logger.info { "Position: ${you.headPosition.x},${you.headPosition.y} game id: ${request.gameId}" }
         logger.info { "Board: ${board.width}x${board.height} game id: ${request.gameId}" }
       }

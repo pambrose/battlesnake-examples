@@ -36,14 +36,8 @@ import static io.battlesnake.core.JavaConstants.UP;
 
 public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.MySnakeContext> {
 
-  @Override
-  public MySnakeContext snakeContext() {
-    return new MySnakeContext();
-  }
-
-  @Override
-  public MyGameStrategy gameStrategy() {
-    return new MyGameStrategy(true);
+  public static void main(String[] args) {
+    new SimpleSnake().run(8080);
   }
 
   static class MySnakeContext extends SnakeContext {
@@ -85,7 +79,13 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.MySnakeContext>
     }
   }
 
-  public static void main(String[] args) {
-    new SimpleSnake().run(8080);
+  @Override
+  public MySnakeContext snakeContext() {
+    return new MySnakeContext();
+  }
+
+  @Override
+  public MyGameStrategy gameStrategy() {
+    return new MyGameStrategy(true);
   }
 }

@@ -21,7 +21,8 @@ of how to define kotlin and java snakes.
 
 ### Kotlin
 * [SimpleSnake](src/main/kotlin/io/battlesnake/examples/kotlin/SimpleSnake.kt)
-* [PerimeterSnake](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnake.kt)
+* [PerimeterSnakeWithLists](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnakeWithLists.kt)
+* [PerimeterSnakeWithSequences](src/main/kotlin/io/battlesnake/examples/kotlin/PerimeterSnakeWithSequences.kt)
 * [CenterSquareSnake](src/main/kotlin/io/battlesnake/examples/kotlin/CenterSquareSnake.kt)
 * [StripedSnake](src/main/kotlin/io/battlesnake/examples/kotlin/StripedSnake.kt)
 
@@ -41,7 +42,7 @@ A server can support running multiple snakes, but they must be the same snake ob
 Assign the `mainName` variable in [build.gradle](./build.gradle#L36) to the desired fully qualified 
 snake classname. For example:
 ```groovy
-def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnake'
+def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnakeWithLists'
 ```
 
 You can run a snake with a script or as an uberjar:

@@ -26,7 +26,6 @@ import io.battlesnake.core.Position;
 import io.battlesnake.core.SnakeContext;
 import io.ktor.application.ApplicationCall;
 
-import java.util.Comparator;
 import java.util.List;
 
 import static io.battlesnake.core.JavaConstants.DOWN;
@@ -58,13 +57,26 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.MySnakeContext>
       List<Food> foodList = request.getFoodList();
       Position headPosition = request.getHeadPosition();
       Position boardCenter = request.getBoardCenter();
-      // Go to the closest food, or center if the foodList is empty,
-      Position newPosition =
-          foodList.stream()
-              .min(Comparator.comparingInt(food -> headPosition.minus(food.getPosition())))
-              .map(food -> food.getPosition())
-              .orElse(boardCenter);
-      return moveTo(request, newPosition);
+
+      // Go to the closest food, or center if the foodList is empty
+      Position minPosition = boardCenter;
+      int minDistance = Integer.MAX_VALUE;
+      for (Food food : foodList) {
+        int dist = headPosition.minus(food.getPosition());
+        if (dist < minDistance) {
+          minDistance = dist;
+          minPosition = food.getPosition();
+        }
+      }
+      return moveTo(request, minPosition);
+
+      // Or, using a stream
+      // Position newPosition =
+      // foodList.stream()
+      //         .min(Comparator.comparingInt(food -> headPosition.minus(food.getPosition())))
+      //         .map(food -> food.getPosition())
+      //         .orElse(boardCenter);
+      // return moveTo(request, newPosition);
     }
 
     private MoveResponse moveTo(MoveRequest request, Position position) {

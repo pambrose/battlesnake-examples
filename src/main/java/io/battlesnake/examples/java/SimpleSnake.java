@@ -58,11 +58,11 @@ public class SimpleSnake extends AbstractBattleSnake<SimpleSnake.MySnakeContext>
       List<Food> foodList = request.getFoodList();
       Position headPosition = request.getHeadPosition();
       Position boardCenter = request.getBoardCenter();
-      // Go to the center if the foodList is empty
+      // Go to the closest food, or center if the foodList is empty,
       Position newPosition =
           foodList.stream()
               .min(Comparator.comparingInt(food -> headPosition.minus(food.getPosition())))
-              .map(Food::getPosition)
+              .map(food -> food.getPosition())
               .orElse(boardCenter);
       return moveTo(request, newPosition);
     }

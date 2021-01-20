@@ -32,8 +32,7 @@ of how to define kotlin and java snakes.
 
 ## Clone your own snake
 
-Use the [Battlesnake_Template](https://github.com/pambrose/battlesnake-template) to clone 
-the code for your own snake.
+Use the [Battlesnake Template](https://github.com/pambrose/battlesnake-template) to clone the code for your own snake.
 
 ## Snake Execution
 

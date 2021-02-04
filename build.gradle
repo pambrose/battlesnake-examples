@@ -16,7 +16,7 @@ repositories {
 
 // Specify the snake you want to run with mainName
 //def mainName = 'io.battlesnake.examples.kotlin.PerimeterSnakeWithLists'
-def mainName = 'io.battlesnake.examples.java.PerimmeterSnake'
+def mainName = 'io.battlesnake.examples.java.PerimeterSnake'
 def appName = 'snake'
 
 sourceCompatibility = 1.8

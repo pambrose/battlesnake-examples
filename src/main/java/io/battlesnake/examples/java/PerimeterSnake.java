@@ -65,8 +65,8 @@ public class PerimeterSnake extends AbstractBattleSnake<PerimeterSnake.MySnakeCo
     public void onStart(MySnakeContext context, StartRequest request) {
       // Add moves that get the snake to origin
       Position pos = request.getYou().getHeadPosition();
-      context.addToPath(pos.getX(), LEFT)
-          .addToPath(pos.getY(), DOWN);
+      context.addToPath(pos.getY(), DOWN)
+          .addToPath(pos.getX(), LEFT);
     }
 
     @Override

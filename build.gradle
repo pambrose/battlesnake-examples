@@ -1,14 +1,15 @@
 plugins {
   id 'java'
   id 'application'
-  id 'org.jetbrains.kotlin.jvm' version '1.4.30'
-  id "com.github.ben-manes.versions" version "0.36.0"
-  id 'com.github.johnrengelman.shadow' version '6.1.0'
+  id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+  id "com.github.ben-manes.versions" version "0.39.0"
+  id 'com.github.johnrengelman.shadow' version '7.1.1'
 }
 
 repositories {
-  maven { url = 'https://maven-central.storage-download.googleapis.com/repos/central/data/' }
-  jcenter()
+  mavenLocal()
+  google()
+  mavenCentral()
   // Do not place this any higher in the order
   // You will pick up a bad version of io.github.microutils:kotlin-logging
   maven { url = 'https://jitpack.io' }
@@ -26,7 +27,7 @@ group = 'io.battlenake'
 version = '0.2.0'
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation "io.ktor:ktor-server-core:$ktor_version"
   implementation "com.github.pambrose:battlesnake-quickstart:${quickstart_version}"
   implementation "io.github.microutils:kotlin-logging:${logging_version}"
@@ -41,7 +42,7 @@ application {
 }
 
 // This task creates the shell scripts to run the app
-task simpleSnake(type: CreateStartScripts) {
+task simpleSnake(type: CreateStartScripts, dependsOn: ['shadowJar']) {
   mainClassName = mainName
   applicationName = appName
   outputDir = new File(project.buildDir, 'tmp')
@@ -58,10 +59,16 @@ task stage(dependsOn: ['uberjar', 'build', 'clean'])
 build.mustRunAfter clean
 
 shadowJar {
+  zip64 true
   mergeServiceFiles()
+  exclude "META-INF/*.SF"
+  exclude 'META-INF/*.DSA'
+  exclude 'META-INF/*.RSA'
+  exclude "LICENSE*"
 }
 
-task uberjar(type: Jar, dependsOn: shadowJar) {
+task uberjar(type: Jar, dependsOn: ['shadowJar', 'simpleSnake']) {
+  zip64 true
   archiveFileName = 'snake.jar'
   manifest {
     attributes('Implementation-Title': appName)
@@ -74,17 +81,21 @@ task uberjar(type: Jar, dependsOn: shadowJar) {
 }
 
 compileKotlin {
-  kotlinOptions.jvmTarget = '1.8'
-  kotlinOptions.freeCompilerArgs += ['-Xuse-experimental=kotlin.time.ExperimentalTime',
-                                     '-Xuse-experimental=kotlin.ExperimentalStdlibApi',
-                                     '-Xuse-experimental=io.ktor.util.KtorExperimentalAPI']
+  kotlinOptions {
+    jvmTarget = '1.8'
+    freeCompilerArgs += ['-Xuse-experimental=kotlin.time.ExperimentalTime',
+                         '-Xuse-experimental=kotlin.ExperimentalStdlibApi',
+                         '-Xuse-experimental=io.ktor.util.KtorExperimentalAPI']
+  }
 }
 
 compileTestKotlin {
-  kotlinOptions.jvmTarget = '1.8'
-  kotlinOptions.freeCompilerArgs += ['-Xuse-experimental=kotlin.time.ExperimentalTime',
-                                     '-Xuse-experimental=kotlin.ExperimentalStdlibApi',
-                                     '-Xuse-experimental=io.ktor.util.KtorExperimentalAPI']
+  kotlinOptions {
+    jvmTarget = '1.8'
+    freeCompilerArgs += ['-Xuse-experimental=kotlin.time.ExperimentalTime',
+                         '-Xuse-experimental=kotlin.ExperimentalStdlibApi',
+                         '-Xuse-experimental=io.ktor.util.KtorExperimentalAPI']
+  }
 }
 
 test {

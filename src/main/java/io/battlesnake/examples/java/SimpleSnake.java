@@ -24,7 +24,7 @@ import io.battlesnake.core.MoveRequest;
 import io.battlesnake.core.MoveResponse;
 import io.battlesnake.core.Position;
 import io.battlesnake.core.SnakeContext;
-import io.ktor.application.ApplicationCall;
+import io.ktor.server.application.ApplicationCall;
 
 import java.util.List;
 

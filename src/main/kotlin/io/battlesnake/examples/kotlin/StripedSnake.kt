@@ -31,7 +31,7 @@ import io.battlesnake.core.StartRequest
 import io.battlesnake.core.UP
 import io.battlesnake.core.isOdd
 import io.battlesnake.core.strategy
-import io.ktor.application.*
+import io.ktor.server.application.*
 
 object StripedSnake : AbstractBattleSnake<StripedSnake.MySnakeContext>() {
 

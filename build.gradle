@@ -1,8 +1,8 @@
 plugins {
   id 'java'
   id 'application'
-  id 'org.jetbrains.kotlin.jvm' version '1.6.10'
-  id "com.github.ben-manes.versions" version "0.40.0"
+  id 'org.jetbrains.kotlin.jvm' version '1.6.20-M1'
+  id "com.github.ben-manes.versions" version "0.42.0"
   id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
@@ -83,18 +83,18 @@ task uberjar(type: Jar, dependsOn: ['shadowJar', 'simpleSnake']) {
 compileKotlin {
   kotlinOptions {
     jvmTarget = '1.8'
-    freeCompilerArgs += ['-Xuse-experimental=kotlin.time.ExperimentalTime',
-                         '-Xuse-experimental=kotlin.ExperimentalStdlibApi',
-                         '-Xuse-experimental=io.ktor.util.KtorExperimentalAPI']
+    freeCompilerArgs += ['-opt-in=kotlin.time.ExperimentalTime',
+                         '-opt-in=kotlin.ExperimentalStdlibApi',
+                         '-opt-in=io.ktor.util.KtorExperimentalAPI']
   }
 }
 
 compileTestKotlin {
   kotlinOptions {
     jvmTarget = '1.8'
-    freeCompilerArgs += ['-Xuse-experimental=kotlin.time.ExperimentalTime',
-                         '-Xuse-experimental=kotlin.ExperimentalStdlibApi',
-                         '-Xuse-experimental=io.ktor.util.KtorExperimentalAPI']
+    freeCompilerArgs += ['-opt-in=kotlin.time.ExperimentalTime',
+                         '-opt-in=kotlin.ExperimentalStdlibApi',
+                         '-opt-in=io.ktor.util.KtorExperimentalAPI']
   }
 }
 
